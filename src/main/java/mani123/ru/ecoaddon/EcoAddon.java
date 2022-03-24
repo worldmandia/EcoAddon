@@ -4,9 +4,9 @@ import com.willfp.eco.core.EcoPlugin;
 import com.willfp.eco.core.command.impl.PluginCommand;
 import mani123.ru.ecoaddon.Command.CommandEcoAddon;
 import mani123.ru.ecoaddon.Config.CraftsYml;
+import mani123.ru.ecoaddon.RecipeMethods.FurnaceRecipe;
 import org.bukkit.event.Listener;
 
-import java.util.Arrays;
 import java.util.List;
 
 public final class EcoAddon extends EcoPlugin {
@@ -25,19 +25,26 @@ public final class EcoAddon extends EcoPlugin {
 
     @Override
     protected List<Listener> loadListeners() {
-        return Arrays.asList();
-    }
-
-    @Override
-    protected List<PluginCommand> loadPluginCommands() {
-        return Arrays.asList(
-                new CommandEcoAddon(this)
+        return List.of(
+                new FurnaceRecipe(this)
         );
     }
 
     @Override
+    protected List<PluginCommand> loadPluginCommands() {
+        return List.of(
+                new CommandEcoAddon(this)
+        );
+    }
+
+    public CraftsYml getCraftsYml() {
+        return this.craftsYml;
+    }
+
+
+    @Override
     public String getMinimumEcoVersion() {
-        return "6.27.2";
+        return "6.30.0";
     }
 
 }

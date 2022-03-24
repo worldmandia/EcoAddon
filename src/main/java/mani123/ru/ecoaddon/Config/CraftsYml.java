@@ -7,6 +7,6 @@ import com.willfp.eco.core.config.ConfigType;
 public class CraftsYml extends BaseConfig {
 
     public CraftsYml(EcoPlugin plugin) {
-        super("crafts", plugin, false, ConfigType.YAML);
+        super("crafts", plugin, true, ConfigType.YAML);
     }
 }

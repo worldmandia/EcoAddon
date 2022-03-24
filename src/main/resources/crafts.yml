@@ -1,1 +1,17 @@
-crafts:
+FurnaceRecipe:
+  - id: furnrecipe
+    input: ecoitems:pink_crystal
+    result: ecoitems:pink_dust
+    experience: 20
+    cookingTime: 60 # in seconds, 60 = 1 min
+CampfireRecipe:
+  - id: campfirerecipe
+    input: ecoitems:pink_crystal
+    result: ecoitems:pink_dust
+    experience: 20
+    cookingTime: 60 # in seconds, 60 = 1 min
+  - id: campfirerecipe
+    input: ecoitems:pink_crystal
+    result: ecoitems:pink_dust
+    experience: 20
+    cookingTime: 60 # in seconds, 60 = 1 min

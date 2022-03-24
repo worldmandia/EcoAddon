@@ -7,11 +7,11 @@ import org.bukkit.inventory.RecipeChoice;
 import org.bukkit.inventory.StonecuttingRecipe;
 import org.jetbrains.annotations.NotNull;
 
-public class StoneCutterMethods {
+public class StoneCutter {
 
     private static int craftCounter = 0;
 
-    public void addRecipeStoneCutter(String group, @NotNull NamespacedKey key, @NotNull ItemStack input, @NotNull ItemStack result) {
+    public void StoneCutterMethods(String group, @NotNull NamespacedKey key, @NotNull ItemStack input, @NotNull ItemStack result) {
         RecipeChoice resultChange = new RecipeChoice.ExactChoice(result);
         StonecuttingRecipe stonecuttingRecipe = new StonecuttingRecipe(key, input, resultChange);
         stonecuttingRecipe.setGroup(group);
