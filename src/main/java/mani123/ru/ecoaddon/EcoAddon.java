@@ -26,7 +26,7 @@ public final class EcoAddon extends EcoPlugin {
 
     @Override
     protected List<Listener> loadListeners() {
-        return null;
+        return Arrays.asList();
     }
 
     @Override
