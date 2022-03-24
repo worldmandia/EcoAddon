@@ -1,0 +1,9 @@
+name: EcoAddon
+version: '${version}'
+main: mani123.ru.ecoaddon.EcoAddon
+api-version: 1.18
+prefix: EAP
+depend: [ EcoItems ]
+authors: [ mani123 ]
+description: Addon for Eco plugins
+website: worldmandia.pw
