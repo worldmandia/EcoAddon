@@ -11,9 +11,12 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.RecipeChoice;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+
 public class FurnaceRecipe extends PluginDependent<EcoPlugin> implements Listener {
 
-    private static int craftCounter = 0;
+    private static  int craftCounter = 0;
+    private static ArrayList<NamespacedKey> FurnaceNamespace = new ArrayList<>();
 
     public FurnaceRecipe(@NotNull final EcoAddon plugin) {
         super(plugin);
@@ -21,12 +24,16 @@ public class FurnaceRecipe extends PluginDependent<EcoPlugin> implements Listene
     }
 
     public static void FurnaceRecipeListener(@NotNull final EcoAddon config) {
+        if (FurnaceNamespace != null){
+            ClearRecipes();
+        }
         for (int i = 0; i < config.getCraftsYml().getSubsections("FurnaceRecipe").size(); i++) {
             ItemStack input = Items.lookup(config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getFormattedString( "input")).getItem();
             ItemStack result = Items.lookup(config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getFormattedString("result")).getItem();
             double experience = config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getDouble("experience");
             int cookingTime = config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getInt("cookingTime");
-            FurnaceRecipeMethod(NamespacedKey.minecraft(config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getString("id")), result, input, (float) experience, cookingTime);
+            NamespacedKey namespacedKey = NamespacedKey.minecraft(config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getString("id"));
+            FurnaceRecipeMethod(namespacedKey, result, input, (float) experience, cookingTime);
         }
 
         //String id = config.getCraftsYml().getString("id").toLowerCase().trim();
@@ -35,11 +42,19 @@ public class FurnaceRecipe extends PluginDependent<EcoPlugin> implements Listene
     public static void FurnaceRecipeMethod(@NotNull NamespacedKey key, @NotNull ItemStack result, @NotNull ItemStack input, float experience, int cookingTime) {
         RecipeChoice inputChoice = new RecipeChoice.ExactChoice(input);
         Bukkit.addRecipe(new org.bukkit.inventory.FurnaceRecipe(key, result, inputChoice, experience, cookingTime * 20));
+        FurnaceNamespace.add(key);
         craftCounter++;
     }
 
     public static int getCraftsCount() {
         return craftCounter;
+    }
+
+    public static void ClearRecipes() {
+        for (NamespacedKey namespacedKey : FurnaceNamespace) {
+            Bukkit.removeRecipe(namespacedKey);
+        }
+        FurnaceNamespace.clear();
     }
 
 }
