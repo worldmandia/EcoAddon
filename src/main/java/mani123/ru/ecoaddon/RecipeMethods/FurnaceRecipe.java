@@ -20,19 +20,19 @@ public class FurnaceRecipe extends PluginDependent<EcoPlugin> implements Listene
         FurnaceRecipeListener(plugin);
     }
 
-    public void FurnaceRecipeListener(@NotNull final EcoAddon config) {
+    public static void FurnaceRecipeListener(@NotNull final EcoAddon config) {
         for (int i = 0; i < config.getCraftsYml().getSubsections("FurnaceRecipe").size(); i++) {
             ItemStack input = Items.lookup(config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getFormattedString( "input")).getItem();
             ItemStack result = Items.lookup(config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getFormattedString("result")).getItem();
             double experience = config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getDouble("experience");
             int cookingTime = config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getInt("cookingTime");
-            FurnaceRecipeMethods(NamespacedKey.minecraft(config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getString("id")), result, input, (float) experience, cookingTime);
+            FurnaceRecipeMethod(NamespacedKey.minecraft(config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getString("id")), result, input, (float) experience, cookingTime);
         }
 
         //String id = config.getCraftsYml().getString("id").toLowerCase().trim();
     }
 
-    public void FurnaceRecipeMethods(@NotNull NamespacedKey key, @NotNull ItemStack result, @NotNull ItemStack input, float experience, int cookingTime) {
+    public static void FurnaceRecipeMethod(@NotNull NamespacedKey key, @NotNull ItemStack result, @NotNull ItemStack input, float experience, int cookingTime) {
         RecipeChoice inputChoice = new RecipeChoice.ExactChoice(input);
         Bukkit.addRecipe(new org.bukkit.inventory.FurnaceRecipe(key, result, inputChoice, experience, cookingTime * 20));
         craftCounter++;
