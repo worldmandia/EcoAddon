@@ -26,7 +26,7 @@ dependencies {
     compileOnly 'com.willfp:eco:6.30.0'
 }
 
-def targetJavaVersion = 18
+def targetJavaVersion = 17
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
     sourceCompatibility = javaVersion

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class FurnaceRecipe extends PluginDependent<EcoPlugin> implements Listener {
 
-    private static  int craftCounter = 0;
+    private static int craftCounter = 0;
     private static ArrayList<NamespacedKey> FurnaceNamespace = new ArrayList<>();
 
     public FurnaceRecipe(@NotNull final EcoAddon plugin) {
@@ -24,11 +24,11 @@ public class FurnaceRecipe extends PluginDependent<EcoPlugin> implements Listene
     }
 
     public static void FurnaceRecipeListener(@NotNull final EcoAddon config) {
-        if (FurnaceNamespace != null){
+        if (FurnaceNamespace != null) {
             ClearRecipes();
         }
         for (int i = 0; i < config.getCraftsYml().getSubsections("FurnaceRecipe").size(); i++) {
-            ItemStack input = Items.lookup(config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getFormattedString( "input")).getItem();
+            ItemStack input = Items.lookup(config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getFormattedString("input")).getItem();
             ItemStack result = Items.lookup(config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getFormattedString("result")).getItem();
             double experience = config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getDouble("experience");
             int cookingTime = config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getInt("cookingTime");
