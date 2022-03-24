@@ -1,6 +1,5 @@
 package mani123.ru.ecoaddon.Command;
 
-import com.willfp.eco.core.EcoPlugin;
 import com.willfp.eco.core.command.impl.Subcommand;
 import com.willfp.eco.util.NumberUtils;
 import com.willfp.eco.util.StringUtils;

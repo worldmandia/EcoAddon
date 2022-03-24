@@ -1,6 +1,5 @@
 package mani123.ru.ecoaddon.Command;
 
-import com.willfp.eco.core.EcoPlugin;
 import com.willfp.eco.core.command.impl.PluginCommand;
 import mani123.ru.ecoaddon.EcoAddon;
 import org.bukkit.command.CommandSender;
