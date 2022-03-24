@@ -3,7 +3,24 @@ version: '${version}'
 main: mani123.ru.ecoaddon.EcoAddon
 api-version: 1.18
 prefix: EAP
-depend: [ EcoItems ]
+depend:
+- EcoItems
+- eco
 authors: [ mani123 ]
 description: Addon for Eco plugins
 website: worldmandia.pw
+
+commands:
+  ecoaddon:
+    description: Master command for other subcommands.
+    permission: ecoaddon.command.ecoaddon
+
+  ecoaddon.command.*:
+    description: Allows all commands
+    default: op
+    children:
+      ecoaddon.command.reload: true
+
+  ecoaddon.command.ecoaddon:
+    description: Allows the use of /ecoaddon
+    default: op

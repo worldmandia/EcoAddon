@@ -1,6 +1,8 @@
 package mani123.ru.ecoaddon.RecipeMethods;
 
+import com.willfp.eco.core.EcoPlugin;
 import org.bukkit.NamespacedKey;
+import org.jetbrains.annotations.NotNull;
 
 public class DefaultMethods {
 
