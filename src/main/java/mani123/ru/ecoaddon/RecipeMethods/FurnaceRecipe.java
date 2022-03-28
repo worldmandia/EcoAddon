@@ -15,7 +15,6 @@ import java.util.ArrayList;
 
 public class FurnaceRecipe extends PluginDependent<EcoPlugin> implements Listener {
 
-    private static int craftCounter = 0;
     private static ArrayList<NamespacedKey> FurnaceNamespace = new ArrayList<>();
 
     public FurnaceRecipe(@NotNull final EcoAddon plugin) {
@@ -35,19 +34,20 @@ public class FurnaceRecipe extends PluginDependent<EcoPlugin> implements Listene
             NamespacedKey namespacedKey = NamespacedKey.minecraft(config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getString("id"));
             FurnaceRecipeMethod(namespacedKey, result, input, (float) experience, cookingTime);
         }
-
-        //String id = config.getCraftsYml().getString("id").toLowerCase().trim();
     }
 
     public static void FurnaceRecipeMethod(@NotNull NamespacedKey key, @NotNull ItemStack result, @NotNull ItemStack input, float experience, int cookingTime) {
         RecipeChoice inputChoice = new RecipeChoice.ExactChoice(input);
         Bukkit.addRecipe(new org.bukkit.inventory.FurnaceRecipe(key, result, inputChoice, experience, cookingTime * 20));
         FurnaceNamespace.add(key);
-        craftCounter++;
     }
 
-    public static int getCraftsCount() {
-        return craftCounter;
+    public static CharSequence getCraftsCount() {
+        return String.valueOf(FurnaceNamespace.size());
+    }
+
+    public static ArrayList<NamespacedKey> getCraftsNames() {
+        return FurnaceNamespace;
     }
 
     public static void ClearRecipes() {

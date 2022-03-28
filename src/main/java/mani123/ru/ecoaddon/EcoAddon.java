@@ -30,6 +30,8 @@ public final class EcoAddon extends EcoPlugin {
         );
     }
 
+
+
     @Override
     protected List<PluginCommand> loadPluginCommands() {
         return List.of(
@@ -44,7 +46,7 @@ public final class EcoAddon extends EcoPlugin {
 
     @Override
     public String getMinimumEcoVersion() {
-        return "6.30.0";
+        return "6.31.0";
     }
 
 }

@@ -13,6 +13,7 @@ public class CommandEcoAddon extends PluginCommand {
         super(plugin, "ecoaddon", "ecoaddon.command.ecoaddon", false);
 
         this.addSubcommand(new CommandReload(plugin));
+        this.addSubcommand(new CommandList(plugin));
     }
 
     @Override

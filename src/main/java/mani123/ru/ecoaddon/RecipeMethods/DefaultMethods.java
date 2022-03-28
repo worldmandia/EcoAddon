@@ -5,7 +5,7 @@ import org.bukkit.NamespacedKey;
 public class DefaultMethods {
 
     public static int getAllCraftsCount() {
-        return CampfireRecipe.getCraftsCount() + FurnaceRecipe.getCraftsCount() + StoneCutter.getCraftsCount();
+        return CampfireRecipe.getCraftsCount() + Integer.parseInt(FurnaceRecipe.getCraftsCount().toString()) + StoneCutter.getCraftsCount();
     }
 
     public static NamespacedKey getRecipeID(String idCrafts) {
