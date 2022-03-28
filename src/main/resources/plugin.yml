@@ -20,7 +20,16 @@ commands:
     default: op
     children:
       ecoaddon.command.reload: true
+      ecoaddon.command.list: true
 
   ecoaddon.command.ecoaddon:
     description: Allows the use of /ecoaddon
+    default: op
+
+  ecoaddon.command.list:
+    description: Allows the use of /ecoaddon list
+    default: op
+
+  ecoaddon.command.reload:
+    description: Allows the use of /ecoaddon reload
     default: op
