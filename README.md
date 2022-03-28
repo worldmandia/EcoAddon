@@ -10,3 +10,5 @@ Minecraft plugin for Add new features to Eco plugins
  - Furnace
  - Campfire (soon)
 <br> more soon :)
+
+bStats: https://bstats.org/plugin/bukkit/EcoAddon
