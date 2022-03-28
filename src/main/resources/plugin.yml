@@ -1,7 +1,7 @@
 name: EcoAddon
 version: '${version}'
 main: mani123.ru.ecoaddon.EcoAddon
-api-version: 1.18
+api-version: 1.17
 prefix: EAP
 depend:
 - EcoItems
