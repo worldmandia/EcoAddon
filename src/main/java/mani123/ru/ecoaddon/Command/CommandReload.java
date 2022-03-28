@@ -25,8 +25,6 @@ public class CommandReload extends Subcommand {
                           @NotNull final List<String> args) {
         sender.sendMessage(this.getPlugin().getLangYml().getMessage("reloaded", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
                 .replace("%time%", NumberUtils.format(this.getPlugin().reloadWithTime())));
-        FurnaceRecipe.FurnaceRecipeListener((EcoAddon) this.getPlugin());
-        StoneCutter.StoneCutterListener((EcoAddon) this.getPlugin());
     }
 
 }

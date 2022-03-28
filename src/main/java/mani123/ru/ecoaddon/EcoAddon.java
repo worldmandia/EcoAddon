@@ -26,10 +26,24 @@ public final class EcoAddon extends EcoPlugin {
 
     @Override
     protected List<Listener> loadListeners() {
-        return List.of(
-                new FurnaceRecipe(this),
-                new StoneCutter(this)
-        );
+        return List.of();
+    }
+
+    @Override
+    protected void handleReload() {
+        if (StoneCutter.getCraftsNames() != null) {
+            StoneCutter.ClearRecipes();
+        }
+        if (FurnaceRecipe.getCraftsNames() != null) {
+            FurnaceRecipe.ClearRecipes();
+        }
+        StoneCutter.StoneCutterListener(this);
+        FurnaceRecipe.FurnaceRecipeListener(this);
+    }
+
+    protected void handleAfterLoad() {
+        StoneCutter.StoneCutterListener(this);
+        FurnaceRecipe.FurnaceRecipeListener(this);
     }
 
 
