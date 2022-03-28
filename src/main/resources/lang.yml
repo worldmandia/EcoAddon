@@ -4,3 +4,4 @@ messages:
   not-player: "&cThis command must be run by a player"
   invalid-command: "&cUnknown subcommand!"
   reloaded: "Reloaded! Took %time%ms"
+  list: "Registered crafts %crafts% (%count%)"
