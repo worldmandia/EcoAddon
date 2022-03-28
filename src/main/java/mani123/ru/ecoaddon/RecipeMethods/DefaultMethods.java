@@ -2,14 +2,16 @@ package mani123.ru.ecoaddon.RecipeMethods;
 
 import org.bukkit.NamespacedKey;
 
+import java.util.ArrayList;
+
 public class DefaultMethods {
 
-    public static int getAllCraftsCount() {
-        return CampfireRecipe.getCraftsCount() + Integer.parseInt(FurnaceRecipe.getCraftsCount().toString()) + StoneCutter.getCraftsCount();
+    public static CharSequence getAllCraftsCount() {
+        return String.valueOf(CampfireRecipe.getCraftsCount() + StoneCutter.getCraftsCount()) + Integer.parseInt(FurnaceRecipe.getCraftsCount().toString());
     }
 
-    public static NamespacedKey getRecipeID(String idCrafts) {
-        return NamespacedKey.minecraft(idCrafts + "_eap_craft");
+    public static ArrayList<NamespacedKey> getAllCraftsNames() {
+        return FurnaceRecipe.getCraftsNames();
     }
 
 }
