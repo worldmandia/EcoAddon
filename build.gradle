@@ -23,7 +23,7 @@ repositories {
 dependencies {
     compileOnly fileTree(dir: './lib', include: ['*.jar'])
     compileOnly 'io.papermc.paper:paper-api:1.17-R0.1-SNAPSHOT'
-    compileOnly 'com.willfp:eco:6.31.0'
+    compileOnly 'com.willfp:eco:6.31.1'
 }
 
 def targetJavaVersion = 17

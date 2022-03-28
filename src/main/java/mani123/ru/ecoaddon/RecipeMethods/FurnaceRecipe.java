@@ -3,6 +3,7 @@ package mani123.ru.ecoaddon.RecipeMethods;
 import com.willfp.eco.core.EcoPlugin;
 import com.willfp.eco.core.PluginDependent;
 import com.willfp.eco.core.items.Items;
+import com.willfp.eco.util.NamespacedKeyUtils;
 import mani123.ru.ecoaddon.EcoAddon;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
@@ -22,16 +23,16 @@ public class FurnaceRecipe extends PluginDependent<EcoPlugin> implements Listene
         FurnaceRecipeListener(plugin);
     }
 
-    public static void FurnaceRecipeListener(@NotNull final EcoAddon config) {
+    public static void FurnaceRecipeListener(@NotNull final EcoAddon plugin) {
         if (FurnaceNamespace != null) {
             ClearRecipes();
         }
-        for (int i = 0; i < config.getCraftsYml().getSubsections("FurnaceRecipe").size(); i++) {
-            ItemStack input = Items.lookup(config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getFormattedString("input")).getItem();
-            ItemStack result = Items.lookup(config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getFormattedString("result")).getItem();
-            double experience = config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getDouble("experience");
-            int cookingTime = config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getInt("cookingTime");
-            NamespacedKey namespacedKey = NamespacedKey.minecraft(config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getString("id").toLowerCase().trim());
+        for (int i = 0; i < plugin.getCraftsYml().getSubsections("FurnaceRecipe").size(); i++) {
+            ItemStack input = Items.lookup(plugin.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getFormattedString("input")).getItem();
+            ItemStack result = Items.lookup(plugin.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getFormattedString("result")).getItem();
+            double experience = plugin.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getDouble("experience");
+            int cookingTime = plugin.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getInt("cookingTime");
+            NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon",plugin.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getString("id").toLowerCase().trim());
             FurnaceRecipeMethod(namespacedKey, result, input, (float) experience, cookingTime);
         }
     }

@@ -5,7 +5,7 @@ at this moment plugin add new crafts
  - 1.17+
 # Dependencies
  - Java 17+
- - Eco plugin v6.31.0+ (https://github.com/Auxilor/eco/releases)
+ - Eco plugin v6.31.1+ (https://github.com/Auxilor/eco/releases)
 # Support crafts
  - StoneCutter
  - Furnace
