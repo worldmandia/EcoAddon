@@ -4,8 +4,13 @@ main: mani123.ru.ecoaddon.EcoAddon
 api-version: 1.17
 prefix: EAP
 depend:
-- EcoItems
 - eco
+softdepend:
+  - EcoArmor
+  - EcoBosses
+  - Talismans
+  - Reforges
+  - EcoItems
 authors: [ mani123 ]
 description: Addon for Eco plugins
 website: worldmandia.pw

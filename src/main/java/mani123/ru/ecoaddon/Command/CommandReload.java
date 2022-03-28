@@ -5,13 +5,13 @@ import com.willfp.eco.util.NumberUtils;
 import com.willfp.eco.util.StringUtils;
 import mani123.ru.ecoaddon.EcoAddon;
 import mani123.ru.ecoaddon.RecipeMethods.FurnaceRecipe;
+import mani123.ru.ecoaddon.RecipeMethods.StoneCutter;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
 public class CommandReload extends Subcommand {
-
 
 
     protected CommandReload(@NotNull final EcoAddon plugin) {
@@ -26,6 +26,7 @@ public class CommandReload extends Subcommand {
         sender.sendMessage(this.getPlugin().getLangYml().getMessage("reloaded", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
                 .replace("%time%", NumberUtils.format(this.getPlugin().reloadWithTime())));
         new FurnaceRecipe((EcoAddon) this.getPlugin());
+        new StoneCutter((EcoAddon) this.getPlugin());
     }
 
 }

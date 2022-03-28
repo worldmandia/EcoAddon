@@ -1,26 +1,59 @@
 package mani123.ru.ecoaddon.RecipeMethods;
 
+import com.willfp.eco.core.EcoPlugin;
+import com.willfp.eco.core.PluginDependent;
+import com.willfp.eco.core.items.Items;
+import mani123.ru.ecoaddon.EcoAddon;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
+import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.RecipeChoice;
 import org.bukkit.inventory.StonecuttingRecipe;
 import org.jetbrains.annotations.NotNull;
 
-public class StoneCutter {
+import java.util.ArrayList;
 
-    private static int craftCounter = 0;
+public class StoneCutter extends PluginDependent<EcoPlugin> implements Listener {
 
-    public void StoneCutterMethods(String group, @NotNull NamespacedKey key, @NotNull ItemStack input, @NotNull ItemStack result) {
-        RecipeChoice resultChange = new RecipeChoice.ExactChoice(result);
-        StonecuttingRecipe stonecuttingRecipe = new StonecuttingRecipe(key, input, resultChange);
-        stonecuttingRecipe.setGroup(group);
-        Bukkit.addRecipe(stonecuttingRecipe);
-        craftCounter++;
+    private static ArrayList<NamespacedKey> StoneCutterNamespace = new ArrayList<>();
+
+    public StoneCutter(@NotNull final EcoAddon plugin) {
+        super(plugin);
+        StoneCutterListener(plugin);
     }
 
-    public static int getCraftsCount() {
-        return craftCounter;
+    public static void StoneCutterListener(@NotNull final EcoAddon config) {
+        if (StoneCutterNamespace != null) {
+            ClearRecipes();
+        }
+        for (int i = 0; i < config.getCraftsYml().getSubsections("StoneCutter").size(); i++) {
+            ItemStack input = Items.lookup(config.getCraftsYml().getSubsections("StoneCutter").get(i).getFormattedString("input")).getItem();
+            ItemStack result = Items.lookup(config.getCraftsYml().getSubsections("StoneCutter").get(i).getFormattedString("result")).getItem();
+            NamespacedKey namespacedKey = NamespacedKey.minecraft(config.getCraftsYml().getSubsections("StoneCutter").get(i).getString("id"));
+            StoneCutterMethod(namespacedKey, input, result);
+        }
+    }
+
+    public static void StoneCutterMethod(@NotNull NamespacedKey key, @NotNull ItemStack input, @NotNull ItemStack result) {
+        RecipeChoice resultChange = new RecipeChoice.ExactChoice(result);
+        StonecuttingRecipe stonecuttingRecipe = new StonecuttingRecipe(key, input, resultChange);
+        Bukkit.addRecipe(stonecuttingRecipe);
+    }
+
+    public static CharSequence getCraftsCount() {
+        return String.valueOf(StoneCutterNamespace.size());
+    }
+
+    public static ArrayList<NamespacedKey> getCraftsNames() {
+        return StoneCutterNamespace;
+    }
+
+    public static void ClearRecipes() {
+        for (NamespacedKey namespacedKey : StoneCutterNamespace) {
+            Bukkit.removeRecipe(namespacedKey);
+        }
+        StoneCutterNamespace.clear();
     }
 
 }

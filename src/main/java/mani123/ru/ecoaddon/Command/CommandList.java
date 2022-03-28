@@ -5,6 +5,7 @@ import com.willfp.eco.core.command.impl.Subcommand;
 import com.willfp.eco.util.StringUtils;
 import mani123.ru.ecoaddon.RecipeMethods.DefaultMethods;
 import mani123.ru.ecoaddon.RecipeMethods.FurnaceRecipe;
+import mani123.ru.ecoaddon.RecipeMethods.StoneCutter;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
@@ -30,14 +31,14 @@ public class CommandList extends Subcommand {
             //case("campfire") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
             //        .replace("%crafts%", FurnaceRecipe.getCraftsNames().toString())
             //        .replace("%count%", FurnaceRecipe.getCraftsCount()));
-            //case("stonecutter") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
-            //        .replace("%crafts%", FurnaceRecipe.getCraftsNames().toString())
-            //        .replace("%count%", FurnaceRecipe.getCraftsCount()));
-            case("furnace") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
+            case ("stonecutter") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
+                    .replace("%crafts%", StoneCutter.getCraftsNames().toString())
+                    .replace("%count%", StoneCutter.getCraftsCount()));
+            case ("furnace") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
                     .replace("%crafts%", FurnaceRecipe.getCraftsNames().toString())
                     .replace("%count%", FurnaceRecipe.getCraftsCount()));
             default -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
-                    .replace("%crafts%", DefaultMethods.getAllCraftsNames().toString())
+                    .replace("%crafts%", DefaultMethods.getAllCraftsNames())
                     .replace("%count%", DefaultMethods.getAllCraftsCount()));
         }
     }

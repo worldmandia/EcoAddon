@@ -10,8 +10,7 @@ CampfireRecipe:
     result: ecoitems:pink_dust
     experience: 20
     cookingTime: 60 # in seconds, 60 = 1 min
-  - id: campfirerecipe
+StoneCutter:
+  - id: StoneCutterrecipe
     input: ecoitems:pink_crystal
     result: ecoitems:pink_dust
-    experience: 20
-    cookingTime: 60 # in seconds, 60 = 1 min

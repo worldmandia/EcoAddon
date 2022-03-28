@@ -31,7 +31,6 @@ public final class EcoAddon extends EcoPlugin {
     }
 
 
-
     @Override
     protected List<PluginCommand> loadPluginCommands() {
         return List.of(

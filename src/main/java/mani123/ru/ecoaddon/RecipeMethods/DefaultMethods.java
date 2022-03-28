@@ -7,11 +7,11 @@ import java.util.ArrayList;
 public class DefaultMethods {
 
     public static CharSequence getAllCraftsCount() {
-        return String.valueOf(CampfireRecipe.getCraftsCount() + StoneCutter.getCraftsCount()) + Integer.parseInt(FurnaceRecipe.getCraftsCount().toString());
+        return String.valueOf(CampfireRecipe.getCraftsCount()) + Integer.parseInt(FurnaceRecipe.getCraftsCount() + StoneCutter.getCraftsCount().toString());
     }
 
-    public static ArrayList<NamespacedKey> getAllCraftsNames() {
-        return FurnaceRecipe.getCraftsNames();
+    public static String getAllCraftsNames() {
+        return FurnaceRecipe.getCraftsNames().toString() + StoneCutter.getCraftsNames();
     }
 
 }
