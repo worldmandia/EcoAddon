@@ -1,15 +1,11 @@
 # EcoAddon
 Minecraft plugin for Add new features to Eco plugins
-
+at this moment plugin add new crafts
 # Support minecraft version
- - 1.18.1
-
+ - 1.17+
 # Support Java version
- - 18
-
-# Support Eco plugins
- - EcoItems
-
+ - 17+
 # Support crafts
- - Stonecutter
+ - StoneCutter
  - Furnace
+ - Campfire
