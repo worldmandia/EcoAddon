@@ -9,7 +9,6 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.RecipeChoice;
-import org.bukkit.inventory.StonecuttingRecipe;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -30,15 +29,15 @@ public class StoneCutter extends PluginDependent<EcoPlugin> implements Listener 
         for (int i = 0; i < config.getCraftsYml().getSubsections("StoneCutter").size(); i++) {
             ItemStack input = Items.lookup(config.getCraftsYml().getSubsections("StoneCutter").get(i).getFormattedString("input")).getItem();
             ItemStack result = Items.lookup(config.getCraftsYml().getSubsections("StoneCutter").get(i).getFormattedString("result")).getItem();
-            NamespacedKey namespacedKey = NamespacedKey.minecraft(config.getCraftsYml().getSubsections("StoneCutter").get(i).getString("id"));
+            NamespacedKey namespacedKey = NamespacedKey.minecraft(config.getCraftsYml().getSubsections("StoneCutter").get(i).getString("id").toLowerCase().trim());
             StoneCutterMethod(namespacedKey, input, result);
         }
     }
 
     public static void StoneCutterMethod(@NotNull NamespacedKey key, @NotNull ItemStack input, @NotNull ItemStack result) {
         RecipeChoice resultChange = new RecipeChoice.ExactChoice(result);
-        StonecuttingRecipe stonecuttingRecipe = new StonecuttingRecipe(key, input, resultChange);
-        Bukkit.addRecipe(stonecuttingRecipe);
+        Bukkit.addRecipe(new org.bukkit.inventory.StonecuttingRecipe(key, input, resultChange));
+        StoneCutterNamespace.add(key);
     }
 
     public static CharSequence getCraftsCount() {

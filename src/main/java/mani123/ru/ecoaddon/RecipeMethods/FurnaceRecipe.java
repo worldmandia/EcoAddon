@@ -31,7 +31,7 @@ public class FurnaceRecipe extends PluginDependent<EcoPlugin> implements Listene
             ItemStack result = Items.lookup(config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getFormattedString("result")).getItem();
             double experience = config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getDouble("experience");
             int cookingTime = config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getInt("cookingTime");
-            NamespacedKey namespacedKey = NamespacedKey.minecraft(config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getString("id"));
+            NamespacedKey namespacedKey = NamespacedKey.minecraft(config.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getString("id").toLowerCase().trim());
             FurnaceRecipeMethod(namespacedKey, result, input, (float) experience, cookingTime);
         }
     }

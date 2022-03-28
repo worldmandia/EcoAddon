@@ -5,6 +5,7 @@ import com.willfp.eco.core.command.impl.PluginCommand;
 import mani123.ru.ecoaddon.Command.CommandEcoAddon;
 import mani123.ru.ecoaddon.Config.CraftsYml;
 import mani123.ru.ecoaddon.RecipeMethods.FurnaceRecipe;
+import mani123.ru.ecoaddon.RecipeMethods.StoneCutter;
 import org.bukkit.event.Listener;
 
 import java.util.List;
@@ -26,7 +27,8 @@ public final class EcoAddon extends EcoPlugin {
     @Override
     protected List<Listener> loadListeners() {
         return List.of(
-                new FurnaceRecipe(this)
+                new FurnaceRecipe(this),
+                new StoneCutter(this)
         );
     }
 
