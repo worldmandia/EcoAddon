@@ -1,15 +1,19 @@
 # EcoAddon
-Minecraft plugin for Add new features to Eco plugins
+Minecraft plugin for Add **new features** to Eco plugins
 <br>at the moment, plugin adds new crafts to devices
 # Dependencies
- - minecraft v1.17+
+ - minecraft 1.17+
  - Java 17+
- - Eco plugin v6.31.1+ (https://github.com/Auxilor/eco/releases)
+ - **Eco plugin** v6.31.1+ _(https://github.com/Auxilor/eco/releases)_
 # Support crafts
  - StoneCutter
  - Furnace
  - Campfire
- - Smoking
-<br> more soon :)
+ - Smoker
+ - Smithing Table (soon)
+ - BlastFurnace (soon)
+ - Villager crafts (soon)
+ - Cooking recipe (soon)
+<br> **request** for **more** features :)
 
-bStats: https://bstats.org/plugin/bukkit/EcoAddon
+_bStats: https://bstats.org/plugin/bukkit/EcoAddon_
