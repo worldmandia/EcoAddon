@@ -17,12 +17,15 @@ public class FurnaceRecipe {
 
     public static void FurnaceRecipeListener(@NotNull final EcoAddon plugin) {
         for (int i = 0; i < plugin.getCraftsYml().getSubsections("FurnaceRecipe").size(); i++) {
-            ItemStack input = Items.lookup(plugin.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getFormattedString("input")).getItem();
-            ItemStack result = Items.lookup(plugin.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getFormattedString("result")).getItem();
-            double experience = plugin.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getDouble("experience");
-            int cookingTime = plugin.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getInt("cookingTime");
-            NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", plugin.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getString("id").toLowerCase().trim());
-            FurnaceRecipeMethod(namespacedKey, result, input, (float) experience, cookingTime);
+            if (!Items.lookup(plugin.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getFormattedString("input")).matches(DefaultMethods.getAIR())
+                    && !Items.lookup(plugin.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getFormattedString("result")).matches(DefaultMethods.getAIR())) {
+                ItemStack input = Items.lookup(plugin.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getFormattedString("input")).getItem();
+                ItemStack result = Items.lookup(plugin.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getFormattedString("result")).getItem();
+                double experience = plugin.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getDouble("experience");
+                int cookingTime = plugin.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getInt("cookingTime");
+                NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", plugin.getCraftsYml().getSubsections("FurnaceRecipe").get(i).getString("id").toLowerCase().trim());
+                FurnaceRecipeMethod(namespacedKey, result, input, (float) experience, cookingTime);
+            }
         }
     }
 

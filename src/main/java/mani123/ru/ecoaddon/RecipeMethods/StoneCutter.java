@@ -4,6 +4,7 @@ import com.willfp.eco.core.items.Items;
 import com.willfp.eco.util.NamespacedKeyUtils;
 import mani123.ru.ecoaddon.EcoAddon;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.RecipeChoice;
@@ -17,10 +18,14 @@ public class StoneCutter {
 
     public static void StoneCutterListener(@NotNull final EcoAddon plugin) {
         for (int i = 0; i < plugin.getCraftsYml().getSubsections("StoneCutter").size(); i++) {
-            ItemStack input = Items.lookup(plugin.getCraftsYml().getSubsections("StoneCutter").get(i).getFormattedString("input")).getItem();
-            ItemStack result = Items.lookup(plugin.getCraftsYml().getSubsections("StoneCutter").get(i).getFormattedString("result")).getItem();
-            NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", plugin.getCraftsYml().getSubsections("StoneCutter").get(i).getString("id").toLowerCase().trim());
-            StoneCutterMethod(namespacedKey, input, result);
+            if (!Items.lookup(plugin.getCraftsYml().getSubsections("StoneCutter").get(i).getFormattedString("input")).matches(DefaultMethods.getAIR())
+                    && !Items.lookup(plugin.getCraftsYml().getSubsections("StoneCutter").get(i).getFormattedString("result")).matches(DefaultMethods.getAIR())) {
+                ItemStack input = Items.lookup(plugin.getCraftsYml().getSubsections("StoneCutter").get(i).getFormattedString("input")).getItem();
+                ItemStack result = Items.lookup(plugin.getCraftsYml().getSubsections("StoneCutter").get(i).getFormattedString("result")).getItem();
+                NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", plugin.getCraftsYml().getSubsections("StoneCutter").get(i).getString("id").toLowerCase().trim());
+                StoneCutterMethod(namespacedKey, input, result);
+            }
+
         }
     }
 

@@ -1,22 +1,30 @@
+# Example
+#
+#   - id: RECIPE_ID (without spaces)
+#     input: ITEM  (iron_door or ecoitems:item)
+#     result: ITEM (iron_door or ecoitems:item)
+#     experience: NUMBER (If need in recipe, example: 28.82)
+#     cookingTime: NUMBER (If need in recipe, in seconds, 60 = 1 min, 3600 = 1 hour)
+#
 FurnaceRecipe:
   - id: furnacerecipe
-    input: ecoitems:pink_crystal
-    result: ecoitems:pink_dust
+    input: ecoitems:item
+    result: ecoitems:item
     experience: 20
-    cookingTime: 60 # in seconds, 60 = 1 min
+    cookingTime: 60
 StoneCutter:
   - id: stonecutterrecipe
-    input: ecoitems:pink_crystal
-    result: ecoitems:pink_dust
+    input: ecoitems:item
+    result: ecoitems:item
 CampfireRecipe:
   - id: campfirerecipe
-    input: ecoitems:pink_crystal
-    result: ecoitems:pink_dust
+    input: ecoitems:item
+    result: ecoitems:item
     experience: 20
-    cookingTime: 60 # in seconds, 60 = 1 min
+    cookingTime: 60
 SmokingRecipe:
   - id: smokingrecipe
-    input: ecoitems:pink_crystal
-    result: ecoitems:pink_dust
+    input: ecoitems:item
+    result: ecoitems:item
     experience: 20
-    cookingTime: 60 # in seconds, 60 = 1 min
+    cookingTime: 60

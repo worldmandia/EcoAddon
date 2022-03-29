@@ -4,6 +4,7 @@ import com.willfp.eco.core.items.Items;
 import com.willfp.eco.util.NamespacedKeyUtils;
 import mani123.ru.ecoaddon.EcoAddon;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.RecipeChoice;
@@ -17,12 +18,15 @@ public class SmokingRecipe {
 
     public static void SmokingRecipeListener(@NotNull final EcoAddon plugin) {
         for (int i = 0; i < plugin.getCraftsYml().getSubsections("SmokingRecipe").size(); i++) {
-            ItemStack input = Items.lookup(plugin.getCraftsYml().getSubsections("SmokingRecipe").get(i).getFormattedString("input")).getItem();
-            ItemStack result = Items.lookup(plugin.getCraftsYml().getSubsections("SmokingRecipe").get(i).getFormattedString("result")).getItem();
-            double experience = plugin.getCraftsYml().getSubsections("SmokingRecipe").get(i).getDouble("experience");
-            int cookingTime = plugin.getCraftsYml().getSubsections("SmokingRecipe").get(i).getInt("cookingTime");
-            NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", plugin.getCraftsYml().getSubsections("SmokingRecipe").get(i).getString("id").toLowerCase().trim());
-            SmokingRecipeMethod(namespacedKey, result, input, (float) experience, cookingTime);
+            if (!Items.lookup(plugin.getCraftsYml().getSubsections("SmokingRecipe").get(i).getFormattedString("input")).matches(DefaultMethods.getAIR())
+                    && !Items.lookup(plugin.getCraftsYml().getSubsections("SmokingRecipe").get(i).getFormattedString("result")).matches(DefaultMethods.getAIR())) {
+                ItemStack input = Items.lookup(plugin.getCraftsYml().getSubsections("SmokingRecipe").get(i).getFormattedString("input")).getItem();
+                ItemStack result = Items.lookup(plugin.getCraftsYml().getSubsections("SmokingRecipe").get(i).getFormattedString("result")).getItem();
+                double experience = plugin.getCraftsYml().getSubsections("SmokingRecipe").get(i).getDouble("experience");
+                int cookingTime = plugin.getCraftsYml().getSubsections("SmokingRecipe").get(i).getInt("cookingTime");
+                NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", plugin.getCraftsYml().getSubsections("SmokingRecipe").get(i).getString("id").toLowerCase().trim());
+                SmokingRecipeMethod(namespacedKey, result, input, (float) experience, cookingTime);
+            }
         }
     }
 
