@@ -8,7 +8,8 @@ Minecraft plugin for Add new features to Eco plugins
 # Support crafts
  - StoneCutter
  - Furnace
- - Campfire (soon)
+ - Campfire
+ - Smoking
 <br> more soon :)
 
 bStats: https://bstats.org/plugin/bukkit/EcoAddon

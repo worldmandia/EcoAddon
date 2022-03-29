@@ -3,6 +3,7 @@ package mani123.ru.ecoaddon.Command;
 import com.willfp.eco.core.EcoPlugin;
 import com.willfp.eco.core.command.impl.Subcommand;
 import com.willfp.eco.util.StringUtils;
+import mani123.ru.ecoaddon.RecipeMethods.CampfireRecipe;
 import mani123.ru.ecoaddon.RecipeMethods.DefaultMethods;
 import mani123.ru.ecoaddon.RecipeMethods.FurnaceRecipe;
 import mani123.ru.ecoaddon.RecipeMethods.StoneCutter;
@@ -22,6 +23,7 @@ public class CommandList extends Subcommand {
         completions.add("furnace");
         completions.add("stonecutter");
         completions.add("campfire");
+        completions.add("smoking");
         completions.add("all");
     }
 
@@ -30,9 +32,9 @@ public class CommandList extends Subcommand {
                           @NotNull final List<String> args) {
         if (args.size() >= 1) {
             switch (args.get(0).toLowerCase(Locale.ROOT)) {
-                //case("campfire") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
-                //        .replace("%crafts%", FurnaceRecipe.getCraftsNames().toString())
-                //        .replace("%count%", FurnaceRecipe.getCraftsCount()));
+                case("campfire") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
+                        .replace("%crafts%", CampfireRecipe.getCraftsNames().toString())
+                        .replace("%count%", CampfireRecipe.getCraftsCount()));
                 case ("stonecutter") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
                         .replace("%crafts%", StoneCutter.getCraftsNames().toString())
                         .replace("%count%", StoneCutter.getCraftsCount()));
