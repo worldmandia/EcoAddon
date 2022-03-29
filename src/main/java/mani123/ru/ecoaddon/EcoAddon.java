@@ -2,6 +2,7 @@ package mani123.ru.ecoaddon;
 
 import com.willfp.eco.core.EcoPlugin;
 import com.willfp.eco.core.command.impl.PluginCommand;
+import com.willfp.eco.core.config.base.ConfigYml;
 import mani123.ru.ecoaddon.Command.CommandEcoAddon;
 import mani123.ru.ecoaddon.Config.CraftsYml;
 import mani123.ru.ecoaddon.RecipeMethods.CampfireRecipe;
@@ -20,8 +21,8 @@ public final class EcoAddon extends EcoPlugin {
 
     public EcoAddon() {
         super(-1, 14724, "&7");
-        instance = this;
 
+        instance = this;
         craftsYml = new CraftsYml(this);
 
     }

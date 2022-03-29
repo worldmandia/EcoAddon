@@ -2,5 +2,17 @@
 # EcoAddon
 # by mani123
 #
-# nothing ¯\_(ツ)_/¯
 #
+enableBlastingRecipe: false # soon
+#
+enableCampfireRecipe: true
+#
+enableCookingRecipe: false # soon
+#
+enableFurnaceRecipe: true
+#
+enableSmithingRecipe: false # soon
+#
+enableSmokingRecipe: true
+#
+enableStoneCutter: true

@@ -17,15 +17,17 @@ public class CampfireRecipe {
     private static ArrayList<NamespacedKey> CampfireNamespace = new ArrayList<>();
 
     public static void CampfireRecipeListener(@NotNull final EcoAddon plugin) {
-        for (int i = 0; i < plugin.getCraftsYml().getSubsections("CampfireRecipe").size(); i++) {
-            if (!Items.lookup(plugin.getCraftsYml().getSubsections("CampfireRecipe").get(i).getFormattedString("input")).matches(DefaultMethods.getAIR())
-                    && !Items.lookup(plugin.getCraftsYml().getSubsections("CampfireRecipe").get(i).getFormattedString("result")).matches(DefaultMethods.getAIR())) {
-                ItemStack input = Items.lookup(plugin.getCraftsYml().getSubsections("CampfireRecipe").get(i).getFormattedString("input")).getItem();
-                ItemStack result = Items.lookup(plugin.getCraftsYml().getSubsections("CampfireRecipe").get(i).getFormattedString("result")).getItem();
-                double experience = plugin.getCraftsYml().getSubsections("CampfireRecipe").get(i).getDouble("experience");
-                int cookingTime = plugin.getCraftsYml().getSubsections("CampfireRecipe").get(i).getInt("cookingTime");
-                NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", plugin.getCraftsYml().getSubsections("CampfireRecipe").get(i).getString("id").toLowerCase().trim());
-                CampfireRecipeMethod(namespacedKey, result, input, (float) experience, cookingTime);
+        if (plugin.getConfigYml().getBool("enableCampfireRecipe")) {
+            for (int i = 0; i < plugin.getCraftsYml().getSubsections("CampfireRecipe").size(); i++) {
+                if (!Items.lookup(plugin.getCraftsYml().getSubsections("CampfireRecipe").get(i).getFormattedString("input")).matches(DefaultMethods.getAIR())
+                        && !Items.lookup(plugin.getCraftsYml().getSubsections("CampfireRecipe").get(i).getFormattedString("result")).matches(DefaultMethods.getAIR())) {
+                    ItemStack input = Items.lookup(plugin.getCraftsYml().getSubsections("CampfireRecipe").get(i).getFormattedString("input")).getItem();
+                    ItemStack result = Items.lookup(plugin.getCraftsYml().getSubsections("CampfireRecipe").get(i).getFormattedString("result")).getItem();
+                    double experience = plugin.getCraftsYml().getSubsections("CampfireRecipe").get(i).getDouble("experience");
+                    int cookingTime = plugin.getCraftsYml().getSubsections("CampfireRecipe").get(i).getInt("cookingTime");
+                    NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", plugin.getCraftsYml().getSubsections("CampfireRecipe").get(i).getString("id").toLowerCase().trim());
+                    CampfireRecipeMethod(namespacedKey, result, input, (float) experience, cookingTime);
+                }
             }
         }
     }
