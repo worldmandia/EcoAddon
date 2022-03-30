@@ -16,7 +16,7 @@ public final class EcoAddon extends EcoPlugin {
     private final CraftsYml craftsYml;
 
     public EcoAddon() {
-        super(-1, 14724, "&7");
+        super(2178, 14724, "&7");
 
         instance = this;
         craftsYml = new CraftsYml(this);
