@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'mani123.ru'
-version = '0.1.9-relase'
+version = '0.1.9-release'
 
 repositories {
     mavenCentral()
