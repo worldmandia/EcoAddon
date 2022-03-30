@@ -4,7 +4,7 @@ main: mani123.ru.ecoaddon.EcoAddon
 api-version: 1.17
 prefix: EAP
 depend:
-- eco
+  - eco
 softdepend:
   - EcoArmor
   - EcoBosses
