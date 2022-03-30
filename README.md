@@ -22,7 +22,6 @@ Minecraft plugin for Add **new features** to Eco plugins
 - Smoker
 - Smithing Table
 - BlastFurnace
-- Cooking recipe (soon)
 - Villager crafts (soon)
   <br> **ask** for **more** features :)
 

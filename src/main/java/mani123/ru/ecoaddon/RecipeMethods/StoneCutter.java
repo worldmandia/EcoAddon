@@ -31,8 +31,8 @@ public class StoneCutter {
     }
 
     public static void StoneCutterMethod(@NotNull NamespacedKey key, @NotNull ItemStack input, @NotNull ItemStack result) {
-        RecipeChoice resultChange = new RecipeChoice.ExactChoice(result);
-        Bukkit.addRecipe(new org.bukkit.inventory.StonecuttingRecipe(key, input, resultChange));
+        RecipeChoice inputChange = new RecipeChoice.ExactChoice(input);
+        Bukkit.addRecipe(new org.bukkit.inventory.StonecuttingRecipe(key, result, inputChange));
         StoneCutterNamespace.add(key);
     }
 
