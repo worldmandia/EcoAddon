@@ -12,7 +12,7 @@ Minecraft plugin for Add **new features** to Eco plugins
 
 # SoftDepends
 
- - Eco plugins by Auxilor: https://polymart.org/user/auxilor.1107
+- Eco plugins by Auxilor: https://polymart.org/user/auxilor.1107
 
 # Support crafts
 
