@@ -1,7 +1,8 @@
-# EcoAddon (https://polymart.org/resource/ecoaddon.2178)
+# EcoAddon
 
 Minecraft plugin for Add **new features** to Eco plugins
 <br>at the moment, plugin adds new crafts to devices
+(https://polymart.org/resource/ecoaddon.2178)
 
 # Dependencies
 
