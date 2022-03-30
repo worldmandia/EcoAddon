@@ -24,6 +24,6 @@ Minecraft plugin for Add **new features** to Eco plugins
 - BlastFurnace
 - Cooking recipe (soon)
 - Villager crafts (soon)
-  <br> **request** for **more** features :)
+  <br> **ask** for **more** features :)
 
 _bStats: https://bstats.org/plugin/bukkit/EcoAddon_
