@@ -12,6 +12,16 @@ FurnaceRecipe:
     result: ecoitems:item
     experience: 20
     cookingTime: 60
+  - id: furnacerecipe2
+    input: ecoitems:item2
+    result: ecoitems:item2
+    experience: 337
+    cookingTime: 120
+  - id: furnacerecipe3
+    input: ecoitems:item3
+    result: ecoitems:item3
+    experience: 228
+    cookingTime: 69
 StoneCutter:
   - id: stonecutterrecipe
     input: ecoitems:item
@@ -28,3 +38,14 @@ SmokingRecipe:
     result: ecoitems:item
     experience: 20
     cookingTime: 60
+BlastingRecipe:
+  - id: smokingrecipe
+    input: ecoitems:item
+    result: ecoitems:item
+    experience: 20
+    cookingTime: 60
+SmithingRecipe:
+  - id: smithingrecipe
+    base_item: ecoitems:item
+    add_item: ecoitems:item
+    result: ecoitems:item

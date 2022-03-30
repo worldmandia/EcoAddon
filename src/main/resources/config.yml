@@ -3,16 +3,16 @@
 # by mani123
 #
 #
-enableBlastingRecipe: false # soon
+enableBlastingRecipe: true
 #
 enableCampfireRecipe: true
 #
-enableCookingRecipe: false # soon
+enableStoneCutter: true
 #
 enableFurnaceRecipe: true
 #
-enableSmithingRecipe: false # soon
+enableSmithingRecipe: true
 #
 enableSmokingRecipe: true
 #
-enableStoneCutter: true
+enableCookingRecipe: false # soon

@@ -13,14 +13,18 @@ public class DefaultMethods {
         return String.valueOf(Integer.parseInt(FurnaceRecipe.getCraftsCount().toString())
                 + Integer.parseInt(StoneCutter.getCraftsCount().toString())
                 + Integer.parseInt(CampfireRecipe.getCraftsCount().toString())
-                + Integer.parseInt(SmokingRecipe.getCraftsCount().toString()));
+                + Integer.parseInt(SmokingRecipe.getCraftsCount().toString())
+                + Integer.parseInt(SmithingRecipe.getCraftsCount().toString())
+                + Integer.parseInt(BlastingRecipe.getCraftsCount().toString()));
     }
 
     public static String getAllCraftsNames() {
         return FurnaceRecipe.getCraftsNames().toString()
                 + StoneCutter.getCraftsNames()
                 + SmokingRecipe.getCraftsNames()
-                + CampfireRecipe.getCraftsNames();
+                + CampfireRecipe.getCraftsNames()
+                + SmithingRecipe.getCraftsNames()
+                + BlastingRecipe.getCraftsNames();
     }
 
     public static ItemStack getAIR(){
@@ -30,7 +34,7 @@ public class DefaultMethods {
     public static String getCraftsNamesList(String name) {
         ArrayList<String> out = new ArrayList<>();
         for (int i = 0; i < EcoAddon.getPlugin().getCraftsYml().getSubsections(name).size(); i++) {
-            out.add(EcoAddon.getPlugin().getCraftsYml().getSubsections("CampfireRecipe").get(i).getString("id"));
+            out.add(EcoAddon.getPlugin().getCraftsYml().getSubsections(name).get(i).getString("id"));
         }
         return out.stream().map(Object::toString)
                 .collect(Collectors.joining(", "));

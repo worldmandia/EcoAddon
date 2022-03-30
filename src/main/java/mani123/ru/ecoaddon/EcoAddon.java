@@ -2,12 +2,10 @@ package mani123.ru.ecoaddon;
 
 import com.willfp.eco.core.EcoPlugin;
 import com.willfp.eco.core.command.impl.PluginCommand;
-import com.willfp.eco.core.config.base.ConfigYml;
 import mani123.ru.ecoaddon.Command.CommandEcoAddon;
 import mani123.ru.ecoaddon.Config.CraftsYml;
 import mani123.ru.ecoaddon.RecipeMethods.*;
 import org.bukkit.event.Listener;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -44,6 +42,14 @@ public final class EcoAddon extends EcoPlugin {
         if (SmokingRecipe.getCraftsNames() != null) {
             SmokingRecipe.ClearRecipes();
         }
+        if (SmithingRecipe.getCraftsNames() != null) {
+            SmithingRecipe.ClearRecipes();
+        }
+        if (BlastingRecipe.getCraftsNames() != null) {
+            BlastingRecipe.ClearRecipes();
+        }
+        SmithingRecipe.SmithingRecipeListener(this);
+        BlastingRecipe.BlastingRecipeListener(this);
         StoneCutter.StoneCutterListener(this);
         FurnaceRecipe.FurnaceRecipeListener(this);
         CampfireRecipe.CampfireRecipeListener(this);
@@ -51,6 +57,8 @@ public final class EcoAddon extends EcoPlugin {
     }
 
     protected void handleAfterLoad() {
+        BlastingRecipe.BlastingRecipeListener(this);
+        SmithingRecipe.SmithingRecipeListener(this);
         StoneCutter.StoneCutterListener(this);
         FurnaceRecipe.FurnaceRecipeListener(this);
         CampfireRecipe.CampfireRecipeListener(this);

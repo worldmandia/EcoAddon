@@ -4,7 +4,6 @@ import com.willfp.eco.core.items.Items;
 import com.willfp.eco.util.NamespacedKeyUtils;
 import mani123.ru.ecoaddon.EcoAddon;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.RecipeChoice;
