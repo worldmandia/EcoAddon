@@ -3,10 +3,11 @@ plugins {
 }
 
 group = 'mani123.ru'
-version = '0.1.9.1-release'
+version = '0.1.9.2-release'
 
 repositories {
     mavenCentral()
+    maven { url = 'https://oss.sonatype.org/content/repositories/central' }
     maven {
         url 'https://jitpack.io'
     }
@@ -22,7 +23,8 @@ repositories {
 
 dependencies {
     compileOnly fileTree(dir: './lib', include: ['*.jar'])
-    compileOnly 'io.papermc.paper:paper-api:1.17-R0.1-SNAPSHOT'
+    compileOnly 'org.jetbrains:annotations:23.0.0'
+    compileOnly 'org.spigotmc:spigot-api:1.18.2-R0.1-SNAPSHOT'
     compileOnly 'com.willfp:eco:6.31.1'
 }
 
