@@ -5,11 +5,9 @@ import com.willfp.eco.core.command.impl.PluginCommand;
 import com.willfp.eco.core.config.base.ConfigYml;
 import mani123.ru.ecoaddon.Command.CommandEcoAddon;
 import mani123.ru.ecoaddon.Config.CraftsYml;
-import mani123.ru.ecoaddon.RecipeMethods.CampfireRecipe;
-import mani123.ru.ecoaddon.RecipeMethods.FurnaceRecipe;
-import mani123.ru.ecoaddon.RecipeMethods.SmokingRecipe;
-import mani123.ru.ecoaddon.RecipeMethods.StoneCutter;
+import mani123.ru.ecoaddon.RecipeMethods.*;
 import org.bukkit.event.Listener;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -65,6 +63,10 @@ public final class EcoAddon extends EcoPlugin {
         return List.of(
                 new CommandEcoAddon(this)
         );
+    }
+
+    public static EcoAddon getPlugin(){
+        return instance;
     }
 
     public CraftsYml getCraftsYml() {

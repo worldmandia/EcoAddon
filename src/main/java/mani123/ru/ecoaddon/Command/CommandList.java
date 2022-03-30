@@ -32,15 +32,15 @@ public class CommandList extends Subcommand {
                           @NotNull final List<String> args) {
         if (args.size() >= 1) {
             switch (args.get(0).toLowerCase(Locale.ROOT)) {
-                case("campfire") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
-                        .replace("%crafts%", CampfireRecipe.getCraftsNames().toString())
-                        .replace("%count%", CampfireRecipe.getCraftsCount()));
+                case ("campfire") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
+                        .replace("%crafts%", DefaultMethods.getCraftsNamesList("CampfireRecipe"))
+                        .replace("%count%", DefaultMethods.getCraftsNamesListCount("CampfireRecipe")));
                 case ("stonecutter") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
-                        .replace("%crafts%", StoneCutter.getCraftsNames().toString())
-                        .replace("%count%", StoneCutter.getCraftsCount()));
+                        .replace("%crafts%", DefaultMethods.getCraftsNamesList("StoneCutter"))
+                        .replace("%count%", DefaultMethods.getCraftsNamesListCount("StoneCutter")));
                 case ("furnace") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
-                        .replace("%crafts%", FurnaceRecipe.getCraftsNames().toString())
-                        .replace("%count%", FurnaceRecipe.getCraftsCount()));
+                        .replace("%crafts%", DefaultMethods.getCraftsNamesList("FurnaceRecipe"))
+                        .replace("%count%", DefaultMethods.getCraftsNamesListCount("FurnaceRecipe")));
                 case ("all") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
                         .replace("%crafts%", DefaultMethods.getAllCraftsNames())
                         .replace("%count%", DefaultMethods.getAllCraftsCount()));
