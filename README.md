@@ -10,7 +10,7 @@ Minecraft plugin for Add **new features** to Eco plugins
 - Java 17+
 - **Eco plugin** v6.31.1+ _(https://github.com/Auxilor/eco/releases)_
 
-#SoftDepends
+# SoftDepends
 
  - Eco plugins by Auxilor: https://polymart.org/user/auxilor.1107
 
