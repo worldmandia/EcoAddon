@@ -4,6 +4,7 @@ import mani123.ru.ecoaddon.EcoAddon;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class DefaultMethods {
@@ -27,7 +28,11 @@ public class DefaultMethods {
     }
 
     public static String getCraftsNamesList(String name) {
-        return EcoAddon.getPlugin().getCraftsYml().getFormattedStrings(name).stream().map(Object::toString)
+        ArrayList<String> out = new ArrayList<>();
+        for (int i = 0; i < EcoAddon.getPlugin().getCraftsYml().getSubsections(name).size(); i++) {
+            out.add(EcoAddon.getPlugin().getCraftsYml().getSubsections("CampfireRecipe").get(i).getString("id"));
+        }
+        return out.stream().map(Object::toString)
                 .collect(Collectors.joining(", "));
     }
 

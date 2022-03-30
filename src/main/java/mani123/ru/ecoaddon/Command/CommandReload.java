@@ -4,8 +4,6 @@ import com.willfp.eco.core.command.impl.Subcommand;
 import com.willfp.eco.util.NumberUtils;
 import com.willfp.eco.util.StringUtils;
 import mani123.ru.ecoaddon.EcoAddon;
-import mani123.ru.ecoaddon.RecipeMethods.FurnaceRecipe;
-import mani123.ru.ecoaddon.RecipeMethods.StoneCutter;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 

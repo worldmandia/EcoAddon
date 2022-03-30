@@ -60,12 +60,10 @@ public final class EcoAddon extends EcoPlugin {
 
     @Override
     protected List<PluginCommand> loadPluginCommands() {
-        return List.of(
-                new CommandEcoAddon(this)
-        );
+        return List.of(new CommandEcoAddon(this));
     }
 
-    public static EcoAddon getPlugin(){
+    public static EcoAddon getPlugin() {
         return instance;
     }
 
