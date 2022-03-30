@@ -5,6 +5,8 @@
 #     result: ITEM (iron_door or ecoitems:item)
 #     experience: NUMBER (If need in recipe, example: 28.82)
 #     cookingTime: NUMBER (If need in recipe, in seconds, 60 = 1 min, 3600 = 1 hour)
+#     base_item: ITEM (only in SmithingRecipe, iron_door or ecoitems:item)
+#     add_item: ITEM (only in SmithingRecipe, iron_door or ecoitems:item)
 #
 FurnaceRecipe:
   - id: furnacerecipe
