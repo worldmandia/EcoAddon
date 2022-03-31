@@ -1,7 +1,7 @@
 # Example
 #
 #   - id: RECIPE_ID (without spaces)
-#     input: ITEM  (iron_door or ecoitems:item)
+#     input: ITEM  (not in SmithingRecipe, iron_door or ecoitems:item)
 #     result: ITEM (iron_door or ecoitems:item)
 #     experience: NUMBER (If need in recipe, example: 28.82)
 #     cookingTime: NUMBER (If need in recipe, in seconds, 60 = 1 min, 3600 = 1 hour)
