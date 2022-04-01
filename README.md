@@ -27,6 +27,6 @@ Minecraft plugin for Add **new features** to Eco plugins
 
 # License
 
-lick here to read [the entire license](https://github.com/mani1232/EcoAddon/blob/master/LICENSE)
+Click here to read [the entire license](https://github.com/mani1232/EcoAddon/blob/master/LICENSE)
 
 _bStats: https://bstats.org/plugin/bukkit/EcoAddon_
