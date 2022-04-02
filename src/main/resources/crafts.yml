@@ -26,6 +26,7 @@ FurnaceRecipe:
     cookingTime: 69
 StoneCutter:
   - id: stonecutterrecipe
+    group: recipegroup1
     input: ecoitems:item
     result: ecoitems:item
 CampfireRecipe:

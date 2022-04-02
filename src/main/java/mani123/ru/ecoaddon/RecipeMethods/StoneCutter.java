@@ -7,7 +7,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.Recipe;
 import org.bukkit.inventory.RecipeChoice;
+import org.bukkit.inventory.StonecuttingRecipe;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -23,16 +25,19 @@ public class StoneCutter {
                         && !Items.lookup(plugin.getCraftsYml().getSubsections("StoneCutter").get(i).getFormattedString("result")).matches(DefaultMethods.getAIR())) {
                     ItemStack input = Items.lookup(plugin.getCraftsYml().getSubsections("StoneCutter").get(i).getFormattedString("input")).getItem();
                     ItemStack result = Items.lookup(plugin.getCraftsYml().getSubsections("StoneCutter").get(i).getFormattedString("result")).getItem();
+                    String group = plugin.getCraftsYml().getSubsections("StoneCutter").get(i).getFormattedString("group");
                     NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", plugin.getCraftsYml().getSubsections("StoneCutter").get(i).getString("id").toLowerCase().trim());
-                    StoneCutterMethod(namespacedKey, input, result);
+                    StoneCutterMethod(namespacedKey, input, result, group);
                 }
             }
         }
     }
 
-    public static void StoneCutterMethod(@NotNull NamespacedKey key, @NotNull ItemStack input, @NotNull ItemStack result) {
+    public static void StoneCutterMethod(@NotNull NamespacedKey key, @NotNull ItemStack input, @NotNull ItemStack result, String group) {
         RecipeChoice inputChange = new RecipeChoice.ExactChoice(input);
-        Bukkit.addRecipe(new org.bukkit.inventory.StonecuttingRecipe(key, result, inputChange));
+        StonecuttingRecipe recipe = new org.bukkit.inventory.StonecuttingRecipe(key, result, inputChange);
+        recipe.setGroup(group);
+        Bukkit.addRecipe(recipe);
         StoneCutterNamespace.add(key);
     }
 
