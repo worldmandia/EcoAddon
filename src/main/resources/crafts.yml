@@ -52,3 +52,15 @@ SmithingRecipe:
     base_item: ecoitems:item
     add_item: ecoitems:item
     result: ecoitems:item
+VillagerTrade:
+  - id: new_villager
+    chance: 100
+    input: ecoitems:pink_crystal
+    result: ecoitems:pink_dust
+    uses: 10
+    maxUses: 20
+    villagerExperience: 15
+    demand: 50
+    specialPrice: 50
+    priceMultiplier: 2
+    experienceReward: true
