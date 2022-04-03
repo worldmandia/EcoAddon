@@ -53,9 +53,12 @@ SmithingRecipe:
     add_item: ecoitems:item
     result: ecoitems:item
 VillagerTrade:
-  - id: new_villager
+  - id: new_villager_trade
     chance: 100
-    input: ecoitems:pink_crystal
+    type: armorer
+    level: 1
+    inputOne: ecoitems:pink_crystal
+    inputTwo: ecoitems:pink_crystal
     result: ecoitems:pink_dust
     uses: 10
     maxUses: 20

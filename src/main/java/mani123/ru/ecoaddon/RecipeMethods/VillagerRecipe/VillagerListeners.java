@@ -8,13 +8,9 @@ import org.bukkit.entity.Villager;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.VillagerAcquireTradeEvent;
-import org.bukkit.event.entity.VillagerReplenishTradeEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.MerchantRecipe;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class VillagerListeners extends PluginDependent<EcoAddon> implements Listener {
 
@@ -28,28 +24,31 @@ public class VillagerListeners extends PluginDependent<EcoAddon> implements List
             for (int i = 0; i < this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").size(); i++) {
                 double chance = this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getDouble("chance") / 100;
                 double randomChance = Math.random();
-                Villager villager = (Villager) event.getEntity();
-                ItemStack result = Items.lookup(this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getFormattedString("result")).getItem();
-                ItemStack inputOne = Items.lookup(this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getFormattedString("inputOne")).getItem();
-                ItemStack inputTwo = Items.lookup(this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getFormattedString("inputTwo")).getItem();
-                int uses = this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getInt("uses");
-                int maxUses = this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getInt("maxUses");
-                int villagerExperience = this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getInt("villagerExperience");
-                int demand = this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getInt("demand");
-                int specialPrice = this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getInt("specialPrice");
-                float priceMultiplier = (float) this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getDouble("priceMultiplier");
-                boolean experienceReward = this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getBool("experienceReward");
-                MerchantRecipe merchantRecipe = new MerchantRecipe(result, uses, maxUses, experienceReward, villagerExperience, priceMultiplier, demand, specialPrice);
-                System.out.println(randomChance + " " + chance);
                 if (randomChance <= chance) {
-                    if (villager.getProfession().getKey() == Villager.Profession.ARMORER.getKey()) {
-                        if (inputOne.getType() != Material.AIR){
-                            merchantRecipe.addIngredient(inputOne);
+                    String type = this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getString("type").toLowerCase().trim();
+                    Villager villager = (Villager) event.getEntity();
+                    if (villager.getProfession().getKey().getNamespace().equals("minecraft:" + type)) {
+                        int level = this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getInt("level");
+                        if (villager.getVillagerLevel() == level || villager.getVillagerLevel() == 0) {
+                            ItemStack result = Items.lookup(this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getFormattedString("result")).getItem();
+                            ItemStack inputOne = Items.lookup(this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getFormattedString("inputOne")).getItem();
+                            ItemStack inputTwo = Items.lookup(this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getFormattedString("inputTwo")).getItem();
+                            int uses = this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getInt("uses");
+                            int maxUses = this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getInt("maxUses");
+                            int villagerExperience = this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getInt("villagerExperience");
+                            int demand = this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getInt("demand");
+                            int specialPrice = this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getInt("specialPrice");
+                            float priceMultiplier = (float) this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getDouble("priceMultiplier");
+                            boolean experienceReward = this.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getBool("experienceReward");
+                            MerchantRecipe merchantRecipe = new MerchantRecipe(result, uses, maxUses, experienceReward, villagerExperience, priceMultiplier, demand, specialPrice);
+                            if (inputOne.getType() != Material.AIR) {
+                                merchantRecipe.addIngredient(inputOne);
+                            }
+                            if (inputTwo.getType() != Material.AIR) {
+                                merchantRecipe.addIngredient(inputTwo);
+                            }
+                            event.setRecipe(merchantRecipe);
                         }
-                        if (inputTwo.getType() != Material.AIR){
-                            merchantRecipe.addIngredient(inputTwo);
-                        }
-                        event.setRecipe(merchantRecipe);
                     }
                 }
             }

@@ -23,6 +23,7 @@ public class CommandList extends Subcommand {
         completions.add("smoking");
         completions.add("smithing");
         completions.add("blasting");
+        completions.add("trades");
         completions.add("all");
     }
 
@@ -36,6 +37,7 @@ public class CommandList extends Subcommand {
                 case ("campfire") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS).replace("%crafts%", DefaultMethods.getCraftsNamesList("CampfireRecipe")).replace("%count%", DefaultMethods.getCraftsNamesListCount("CampfireRecipe")));
                 case ("stonecutter") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS).replace("%crafts%", DefaultMethods.getCraftsNamesList("StoneCutter")).replace("%count%", DefaultMethods.getCraftsNamesListCount("StoneCutter")));
                 case ("furnace") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS).replace("%crafts%", DefaultMethods.getCraftsNamesList("FurnaceRecipe")).replace("%count%", DefaultMethods.getCraftsNamesListCount("FurnaceRecipe")));
+                case ("trades") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS).replace("%crafts%", DefaultMethods.getCraftsNamesList("VillagerTrade")).replace("%count%", DefaultMethods.getCraftsNamesListCount("VillagerTrade")));
                 case ("all") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS).replace("%crafts%", DefaultMethods.getAllCraftsNames()).replace("%count%", DefaultMethods.getAllCraftsCount()));
                 default -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("invalid-command"));
             }
