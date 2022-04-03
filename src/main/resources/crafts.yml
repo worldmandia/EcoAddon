@@ -64,6 +64,7 @@ SmithingRecipe:
 #   - id: TRADE_ID (any id, without spaces)
 #     chance: NUMBER  (from 0 to 100)
 #     type: armorer,butcher,cartographer,cleric,farmer,fisherman,fletcher,leatherworker,librarian,nitwit,mason,shepherd,toolsmith,weaponsmith
+#     level: NUMBER (from 1 to max by type, for example 1-2 = villager tier 1)
 #     inputOne: ITEM (iron_door or ecoitems:item)
 #     inputTwo: ITEM (iron_door or ecoitems:item, or false)
 #     result: ITEM (iron_door or ecoitems:item)
