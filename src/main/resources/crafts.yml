@@ -8,6 +8,7 @@
 #     base_item: ITEM (only in SmithingRecipe, iron_door or ecoitems:item)
 #     add_item: ITEM (only in SmithingRecipe, iron_door or ecoitems:item)
 #
+
 FurnaceRecipe:
   - id: furnacerecipe
     input: ecoitems:item
@@ -24,46 +25,69 @@ FurnaceRecipe:
     result: ecoitems:item3
     experience: 228
     cookingTime: 69
+
 StoneCutter:
   - id: stonecutterrecipe
     group: recipegroup1
     input: ecoitems:item
     result: ecoitems:item
+
 CampfireRecipe:
   - id: campfirerecipe
     input: ecoitems:item
     result: ecoitems:item
     experience: 20
     cookingTime: 60
+
 SmokingRecipe:
   - id: smokingrecipe
     input: ecoitems:item
     result: ecoitems:item
     experience: 20
     cookingTime: 60
+
 BlastingRecipe:
   - id: smokingrecipe
     input: ecoitems:item
     result: ecoitems:item
     experience: 20
     cookingTime: 60
+
 SmithingRecipe:
   - id: smithingrecipe
     base_item: ecoitems:item
     add_item: ecoitems:item
     result: ecoitems:item
+
+# Trades Wiki
+#
+#   - id: TRADE_ID (any id, without spaces)
+#     chance: NUMBER  (from 0 to 100)
+#     type: armorer,butcher,cartographer,cleric,farmer,fisherman,fletcher,leatherworker,librarian,nitwit,mason,shepherd,toolsmith,weaponsmith
+#     inputOne: ITEM (iron_door or ecoitems:item)
+#     inputTwo: ITEM (iron_door or ecoitems:item, or false)
+#     result: ITEM (iron_door or ecoitems:item)
+#     uses: NUMBER
+#     maxUses: NUMBER
+#     villagerExperience: NUMBER
+#     demand: NUMBER
+#     specialPrice: NUMBER
+#     priceMultiplier: NUMBER
+#     experienceReward: true or false
+#
+
 VillagerTrade:
-  - id: new_villager_trade
+  - id: new_villager_trade1
     chance: 100
     type: armorer
     level: 1
     inputOne: ecoitems:pink_crystal
     inputTwo: ecoitems:pink_crystal
     result: ecoitems:pink_dust
-    uses: 10
-    maxUses: 20
-    villagerExperience: 15
-    demand: 50
-    specialPrice: 50
-    priceMultiplier: 2
+    uses: 2
+    maxUses: 5
+    villagerExperience: 1
+    demand: 0
+    specialPrice: 100
+    priceMultiplier: 0
     experienceReward: true
