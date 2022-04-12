@@ -18,12 +18,12 @@ public class VillagerListeners extends PluginDependent<EcoAddon> implements List
     CreateMerchant createMerchant = new CreateMerchant();
 
     @EventHandler
-    public void onEntitySpawnEvent(@NotNull final VillagerReplenishTradeEvent event) {
+    public void VillagerReplenishTradeEvent(@NotNull final VillagerReplenishTradeEvent event) {
         createMerchant.CreateMerchantTrade((Villager) event.getEntity());
     }
 
     @EventHandler
-    public void onEntitySpawnEvent(@NotNull final VillagerCareerChangeEvent event) {
+    public void VillagerCareerChangeEvent(@NotNull final VillagerCareerChangeEvent event) {
         createMerchant.CreateMerchantTrade(event.getEntity());
     }
 
