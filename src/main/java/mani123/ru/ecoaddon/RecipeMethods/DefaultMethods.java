@@ -27,7 +27,7 @@ public class DefaultMethods {
                 + BlastingRecipe.getCraftsNames();
     }
 
-    public static ItemStack getAIR(){
+    public static ItemStack getAIR() {
         return new ItemStack(Material.AIR);
     }
 

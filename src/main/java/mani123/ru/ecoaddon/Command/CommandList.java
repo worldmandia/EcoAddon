@@ -31,14 +31,22 @@ public class CommandList extends Subcommand {
     public void onExecute(@NotNull final CommandSender sender, @NotNull final List<String> args) {
         if (args.size() >= 1) {
             switch (args.get(0).toLowerCase(Locale.ROOT)) {
-                case ("blasting") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS).replace("%crafts%", DefaultMethods.getCraftsNamesList("BlastingRecipe")).replace("%count%", DefaultMethods.getCraftsNamesListCount("BlastingRecipe")));
-                case ("smithing") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS).replace("%crafts%", DefaultMethods.getCraftsNamesList("SmithingRecipe")).replace("%count%", DefaultMethods.getCraftsNamesListCount("SmithingRecipe")));
-                case ("smoking") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS).replace("%crafts%", DefaultMethods.getCraftsNamesList("SmokingRecipe")).replace("%count%", DefaultMethods.getCraftsNamesListCount("SmokingRecipe")));
-                case ("campfire") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS).replace("%crafts%", DefaultMethods.getCraftsNamesList("CampfireRecipe")).replace("%count%", DefaultMethods.getCraftsNamesListCount("CampfireRecipe")));
-                case ("stonecutter") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS).replace("%crafts%", DefaultMethods.getCraftsNamesList("StoneCutter")).replace("%count%", DefaultMethods.getCraftsNamesListCount("StoneCutter")));
-                case ("furnace") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS).replace("%crafts%", DefaultMethods.getCraftsNamesList("FurnaceRecipe")).replace("%count%", DefaultMethods.getCraftsNamesListCount("FurnaceRecipe")));
-                case ("trades") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS).replace("%crafts%", DefaultMethods.getCraftsNamesList("VillagerTrade")).replace("%count%", DefaultMethods.getCraftsNamesListCount("VillagerTrade")));
-                case ("all") -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS).replace("%crafts%", DefaultMethods.getAllCraftsNames()).replace("%count%", DefaultMethods.getAllCraftsCount()));
+                case ("blasting") ->
+                        sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS).replace("%crafts%", DefaultMethods.getCraftsNamesList("BlastingRecipe")).replace("%count%", DefaultMethods.getCraftsNamesListCount("BlastingRecipe")));
+                case ("smithing") ->
+                        sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS).replace("%crafts%", DefaultMethods.getCraftsNamesList("SmithingRecipe")).replace("%count%", DefaultMethods.getCraftsNamesListCount("SmithingRecipe")));
+                case ("smoking") ->
+                        sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS).replace("%crafts%", DefaultMethods.getCraftsNamesList("SmokingRecipe")).replace("%count%", DefaultMethods.getCraftsNamesListCount("SmokingRecipe")));
+                case ("campfire") ->
+                        sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS).replace("%crafts%", DefaultMethods.getCraftsNamesList("CampfireRecipe")).replace("%count%", DefaultMethods.getCraftsNamesListCount("CampfireRecipe")));
+                case ("stonecutter") ->
+                        sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS).replace("%crafts%", DefaultMethods.getCraftsNamesList("StoneCutter")).replace("%count%", DefaultMethods.getCraftsNamesListCount("StoneCutter")));
+                case ("furnace") ->
+                        sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS).replace("%crafts%", DefaultMethods.getCraftsNamesList("FurnaceRecipe")).replace("%count%", DefaultMethods.getCraftsNamesListCount("FurnaceRecipe")));
+                case ("trades") ->
+                        sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS).replace("%crafts%", DefaultMethods.getCraftsNamesList("VillagerTrade")).replace("%count%", DefaultMethods.getCraftsNamesListCount("VillagerTrade")));
+                case ("all") ->
+                        sender.sendMessage(this.getPlugin().getLangYml().getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS).replace("%crafts%", DefaultMethods.getAllCraftsNames()).replace("%count%", DefaultMethods.getAllCraftsCount()));
                 default -> sender.sendMessage(this.getPlugin().getLangYml().getMessage("invalid-command"));
             }
         } else {

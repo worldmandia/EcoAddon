@@ -20,12 +20,14 @@ commands:
     description: Master command for other subcommands.
     permission: ecoaddon.command.ecoaddon
 
+permissions:
   ecoaddon.command.*:
     description: Allows all commands
     default: op
     children:
       ecoaddon.command.reload: true
       ecoaddon.command.list: true
+      ecoaddon.command.ecoaddon: true
 
   ecoaddon.command.ecoaddon:
     description: Allows the use of /ecoaddon

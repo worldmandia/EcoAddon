@@ -17,7 +17,7 @@ public class CreateMerchant {
                 System.out.println("1");
                 if (randomChance <= chance) {
                     String type = EcoAddon.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getString("type").toLowerCase().trim();
-                    System.out.println("2 " + event.getProfession().getKey().getKey() + "  "+ type);
+                    System.out.println("2 " + event.getProfession().getKey().getKey() + "  " + type);
                     if (event.getProfession().getKey().getKey().equals(type)) {
                         System.out.println("3");
                         int level = EcoAddon.getPlugin().getCraftsYml().getSubsections("VillagerTrade").get(i).getInt("level") - 1;

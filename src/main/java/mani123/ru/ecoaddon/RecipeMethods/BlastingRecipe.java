@@ -18,8 +18,7 @@ public class BlastingRecipe {
     public static void BlastingRecipeListener(@NotNull final EcoAddon plugin) {
         if (plugin.getConfigYml().getBool("enableBlastingRecipe")) {
             for (int i = 0; i < plugin.getCraftsYml().getSubsections("BlastingRecipe").size(); i++) {
-                if (!Items.lookup(plugin.getCraftsYml().getSubsections("BlastingRecipe").get(i).getFormattedString("input")).matches(DefaultMethods.getAIR())
-                        && !Items.lookup(plugin.getCraftsYml().getSubsections("BlastingRecipe").get(i).getFormattedString("result")).matches(DefaultMethods.getAIR())) {
+                if (!Items.lookup(plugin.getCraftsYml().getSubsections("BlastingRecipe").get(i).getFormattedString("input")).matches(DefaultMethods.getAIR()) && !Items.lookup(plugin.getCraftsYml().getSubsections("BlastingRecipe").get(i).getFormattedString("result")).matches(DefaultMethods.getAIR())) {
                     ItemStack input = Items.lookup(plugin.getCraftsYml().getSubsections("BlastingRecipe").get(i).getFormattedString("input")).getItem();
                     ItemStack result = Items.lookup(plugin.getCraftsYml().getSubsections("BlastingRecipe").get(i).getFormattedString("result")).getItem();
                     double experience = plugin.getCraftsYml().getSubsections("BlastingRecipe").get(i).getDouble("experience");
