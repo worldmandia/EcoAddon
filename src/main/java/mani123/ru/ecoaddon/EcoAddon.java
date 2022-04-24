@@ -83,7 +83,7 @@ public final class EcoAddon extends EcoPlugin {
 
     @Override
     public String getMinimumEcoVersion() {
-        return "6.31.1";
+        return "6.34.0";
     }
 
 }
