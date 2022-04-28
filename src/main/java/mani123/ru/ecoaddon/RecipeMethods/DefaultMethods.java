@@ -5,6 +5,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class DefaultMethods {
 
@@ -12,6 +13,11 @@ public class DefaultMethods {
         for (NamespacedKey keys : items) {
             Bukkit.removeRecipe(keys);
         }
+    }
+
+    public static String getFormattedList(ArrayList<String> list) {
+        return list.stream().map(Object::toString)
+                .collect(Collectors.joining(", "));
     }
 
 }
