@@ -5,6 +5,7 @@ import com.willfp.eco.core.command.impl.Subcommand;
 import com.willfp.eco.core.config.base.LangYml;
 import com.willfp.eco.util.StringUtils;
 import mani123.ru.ecoaddon.RecipeMethods.DefaultMethods;
+import mani123.ru.ecoaddon.RecipeMethods.SmithingCraft;
 import mani123.ru.ecoaddon.RecipeMethods.SmokingCraft;
 import mani123.ru.ecoaddon.RecipeMethods.StoneCutter;
 import org.bukkit.command.CommandSender;
@@ -31,16 +32,16 @@ public class CommandList extends Subcommand {
                                 .replace("%crafts%", DefaultMethods.getCraftsNamesList("BlastingRecipe")).replace("%count%", DefaultMethods.getCraftsNamesListCount("BlastingRecipe")));
                 case ("smithing") ->
                         sender.sendMessage(lang.getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
-                                .replace("%crafts%", DefaultMethods.getCraftsNamesList("SmithingRecipe")).replace("%count%", DefaultMethods.getCraftsNamesListCount("SmithingRecipe")));
+                                .replace("%crafts%", DefaultMethods.getFormattedList(SmithingCraft.getIds())).replace("%count%", String.valueOf(SmithingCraft.getIds().size())));
                 case ("smoking") ->
                         sender.sendMessage(lang.getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
-                                .replace("%crafts%", DefaultMethods.getFormattedList(SmokingCraft.getSmokingIds())).replace("%count%",String.valueOf(SmokingCraft.getSmokingIds().size())));
+                                .replace("%crafts%", DefaultMethods.getFormattedList(SmokingCraft.getIds())).replace("%count%",String.valueOf(SmokingCraft.getIds().size())));
                 case ("campfire") ->
                         sender.sendMessage(lang.getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
                                 .replace("%crafts%", DefaultMethods.getCraftsNamesList("CampfireRecipe")).replace("%count%", DefaultMethods.getCraftsNamesListCount("CampfireRecipe")));
                 case ("stonecutter") ->
                         sender.sendMessage(lang.getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
-                                .replace("%crafts%", DefaultMethods.getFormattedList(StoneCutter.getStoneCutterIds())).replace("%count%",String.valueOf(StoneCutter.getStoneCutterIds().size())));
+                                .replace("%crafts%", DefaultMethods.getFormattedList(StoneCutter.getIds())).replace("%count%",String.valueOf(StoneCutter.getIds().size())));
                 case ("furnace") ->
                         sender.sendMessage(lang.getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
                                 .replace("%crafts%", DefaultMethods.getCraftsNamesList("FurnaceRecipe")).replace("%count%", DefaultMethods.getCraftsNamesListCount("FurnaceRecipe")));
