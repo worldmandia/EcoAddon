@@ -20,6 +20,7 @@ public class StoneCutter {
 
     public static void StoneCutterListener(@NotNull final EcoAddon plugin) {
         if (!plugin.getConfigYml().getBool("enableStoneCutter")) return;
+        StoneCutterIds.clear();
         for (Config CfgSub : plugin.getCraftsYml().getSubsections("StoneCutter")) {
             ItemStack input = Items.lookup(CfgSub.getFormattedString("input")).getItem();
             ItemStack result = Items.lookup(CfgSub.getFormattedString("result")).getItem();
@@ -32,14 +33,6 @@ public class StoneCutter {
             stonecuttingRecipe.setGroup(group);
             Bukkit.addRecipe(stonecuttingRecipe);
         }
-    }
-
-    public static void ClearRecipes() {
-        for (NamespacedKey namespacedKey : StoneCutterNamespaces) {
-            Bukkit.removeRecipe(namespacedKey);
-        }
-        StoneCutterNamespaces.clear();
-        StoneCutterIds.clear();
     }
 
     public static ArrayList<NamespacedKey> getStoneCutterNamespaces() {
