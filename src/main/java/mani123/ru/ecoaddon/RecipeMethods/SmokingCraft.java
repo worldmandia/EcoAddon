@@ -15,7 +15,9 @@ import java.util.ArrayList;
 
 public class SmokingCraft {
 
-    private static final ArrayList<NamespacedKey> SmokingNamespace = new ArrayList<>();
+    private static final ArrayList<NamespacedKey> SmokingNamespaces = new ArrayList<>();
+
+    private static final ArrayList<String> SmokingIds = new ArrayList<>();
 
     public static void SmokingRecipeListener(@NotNull final EcoAddon plugin) {
         if (!plugin.getConfigYml().getBool("enableSmokingRecipe")) return;
@@ -24,8 +26,10 @@ public class SmokingCraft {
             ItemStack result = Items.lookup(CfgSub.getFormattedString("result")).getItem();
             float experience = (float) CfgSub.getDouble("experience");
             int cookingTime = CfgSub.getInt("cookingTime") * 20;
-            NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", CfgSub.getFormattedString("id"));
-            SmokingNamespace.add(namespacedKey);
+            String id = CfgSub.getFormattedString("id");
+            NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", id);
+            SmokingNamespaces.add(namespacedKey);
+            SmokingIds.add(id);
             SmokingRecipe smokingRecipe = new SmokingRecipe(namespacedKey, result, (RecipeChoice) input, experience, cookingTime);
             Bukkit.addRecipe(smokingRecipe);
         }
@@ -33,10 +37,19 @@ public class SmokingCraft {
 
 
     public static void ClearRecipes() {
-        for (NamespacedKey namespacedKey : SmokingNamespace) {
+        for (NamespacedKey namespacedKey : SmokingNamespaces) {
             Bukkit.removeRecipe(namespacedKey);
         }
-        SmokingNamespace.clear();
+        SmokingNamespaces.clear();
+        SmokingIds.clear();
+    }
+
+    public static ArrayList<NamespacedKey> getSmokingNamespaces() {
+        return SmokingNamespaces;
+    }
+
+    public static ArrayList<String> getSmokingIds() {
+        return SmokingIds;
     }
 
 }
