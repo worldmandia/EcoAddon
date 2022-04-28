@@ -15,7 +15,8 @@ import java.util.ArrayList;
 
 public class StoneCutter {
 
-    private static final ArrayList<NamespacedKey> StoneCutterNamespace = new ArrayList<>();
+    private static final ArrayList<NamespacedKey> StoneCutterNamespaces = new ArrayList<>();
+    private static final ArrayList<String> StoneCutterIds = new ArrayList<>();
 
     public static void StoneCutterListener(@NotNull final EcoAddon plugin) {
         if (!plugin.getConfigYml().getBool("enableStoneCutter")) return;
@@ -23,8 +24,10 @@ public class StoneCutter {
             ItemStack input = Items.lookup(CfgSub.getFormattedString("input")).getItem();
             ItemStack result = Items.lookup(CfgSub.getFormattedString("result")).getItem();
             String group = CfgSub.getFormattedString("group");
-            NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", CfgSub.getFormattedString("id"));
-            StoneCutterNamespace.add(namespacedKey);
+            String id = CfgSub.getFormattedString("id");
+            NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", id);
+            StoneCutterIds.add(id);
+            StoneCutterNamespaces.add(namespacedKey);
             StonecuttingRecipe stonecuttingRecipe = new StonecuttingRecipe(namespacedKey, result, (RecipeChoice) input);
             stonecuttingRecipe.setGroup(group);
             Bukkit.addRecipe(stonecuttingRecipe);
@@ -32,10 +35,19 @@ public class StoneCutter {
     }
 
     public static void ClearRecipes() {
-        for (NamespacedKey namespacedKey : StoneCutterNamespace) {
+        for (NamespacedKey namespacedKey : StoneCutterNamespaces) {
             Bukkit.removeRecipe(namespacedKey);
         }
-        StoneCutterNamespace.clear();
+        StoneCutterNamespaces.clear();
+        StoneCutterIds.clear();
+    }
+
+    public static ArrayList<NamespacedKey> getStoneCutterNamespaces() {
+        return StoneCutterNamespaces;
+    }
+
+    public static ArrayList<String> getStoneCutterIds() {
+        return StoneCutterIds;
     }
 
 }
