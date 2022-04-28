@@ -26,8 +26,8 @@ public class StoneCutter {
             ItemStack result = Items.lookup(CfgSub.getFormattedString("result")).getItem();
             String group = CfgSub.getFormattedString("group");
             String id = CfgSub.getFormattedString("id");
-            NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", id);
             StoneCutterIds.add(id);
+            NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", id);
             StoneCutterNamespaces.add(namespacedKey);
             StonecuttingRecipe stonecuttingRecipe = new StonecuttingRecipe(namespacedKey, result, (RecipeChoice) input);
             stonecuttingRecipe.setGroup(group);
@@ -35,11 +35,11 @@ public class StoneCutter {
         }
     }
 
-    public static ArrayList<NamespacedKey> getStoneCutterNamespaces() {
+    public static ArrayList<NamespacedKey> getNamespaces() {
         return StoneCutterNamespaces;
     }
 
-    public static ArrayList<String> getStoneCutterIds() {
+    public static ArrayList<String> getIds() {
         return StoneCutterIds;
     }
 
