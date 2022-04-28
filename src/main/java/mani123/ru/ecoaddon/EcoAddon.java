@@ -2,8 +2,10 @@ package mani123.ru.ecoaddon;
 
 import com.willfp.eco.core.EcoPlugin;
 import com.willfp.eco.core.command.impl.PluginCommand;
+import com.willfp.eco.util.NamespacedKeyUtils;
 import mani123.ru.ecoaddon.Command.CommandEcoAddon;
 import mani123.ru.ecoaddon.Config.CraftsYml;
+import mani123.ru.ecoaddon.RecipeMethods.DefaultMethods;
 import mani123.ru.ecoaddon.RecipeMethods.SmokingCraft;
 import mani123.ru.ecoaddon.RecipeMethods.StoneCutter;
 import mani123.ru.ecoaddon.RecipeMethods.VillagerRecipe.VillagerListeners;
@@ -32,8 +34,8 @@ public final class EcoAddon extends EcoPlugin {
 
     @Override
     protected void handleReload() {
-        StoneCutter.ClearRecipes();
-        SmokingCraft.ClearRecipes();
+        DefaultMethods.ClearCrafts(StoneCutter.getStoneCutterNamespaces());
+        DefaultMethods.ClearCrafts(SmokingCraft.getSmokingNamespaces());
         StoneCutter.StoneCutterListener(this);
         SmokingCraft.SmokingRecipeListener(this);
     }
