@@ -8,7 +8,7 @@ Minecraft plugin for Add **new features** to Eco plugins
 
 - minecraft 1.17+
 - Java 17+
-- **Eco plugin** v6.31.1+ _(https://github.com/Auxilor/eco/releases)_
+- **Eco plugin** v6.35.1+ _(https://github.com/Auxilor/eco/releases)_
 
 # SoftDepends
 
@@ -22,7 +22,7 @@ Minecraft plugin for Add **new features** to Eco plugins
 - Smoker
 - Smithing Table
 - BlastFurnace
-- Villager crafts (soon)
+- Villager crafts (test)
   <br> **ask** for **more** features :)
 
 # License
