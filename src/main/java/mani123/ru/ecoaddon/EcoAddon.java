@@ -4,7 +4,8 @@ import com.willfp.eco.core.EcoPlugin;
 import com.willfp.eco.core.command.impl.PluginCommand;
 import mani123.ru.ecoaddon.Command.CommandEcoAddon;
 import mani123.ru.ecoaddon.Config.CraftsYml;
-import mani123.ru.ecoaddon.RecipeMethods.*;
+import mani123.ru.ecoaddon.RecipeMethods.SmokingCraft;
+import mani123.ru.ecoaddon.RecipeMethods.StoneCutter;
 import mani123.ru.ecoaddon.RecipeMethods.VillagerRecipe.VillagerListeners;
 import org.bukkit.event.Listener;
 
@@ -31,39 +32,15 @@ public final class EcoAddon extends EcoPlugin {
 
     @Override
     protected void handleReload() {
-        if (StoneCutter.getCraftsNames() != null) {
-            StoneCutter.ClearRecipes();
-        }
-        if (FurnaceRecipe.getCraftsNames() != null) {
-            FurnaceRecipe.ClearRecipes();
-        }
-        if (CampfireRecipe.getCraftsNames() != null) {
-            CampfireRecipe.ClearRecipes();
-        }
-        if (SmokingRecipe.getCraftsNames() != null) {
-            SmokingRecipe.ClearRecipes();
-        }
-        if (SmithingRecipe.getCraftsNames() != null) {
-            SmithingRecipe.ClearRecipes();
-        }
-        if (BlastingRecipe.getCraftsNames() != null) {
-            BlastingRecipe.ClearRecipes();
-        }
-        SmithingRecipe.SmithingRecipeListener(this);
-        BlastingRecipe.BlastingRecipeListener(this);
+        StoneCutter.ClearRecipes();
+        SmokingCraft.ClearRecipes();
         StoneCutter.StoneCutterListener(this);
-        FurnaceRecipe.FurnaceRecipeListener(this);
-        CampfireRecipe.CampfireRecipeListener(this);
-        SmokingRecipe.SmokingRecipeListener(this);
+        SmokingCraft.SmokingRecipeListener(this);
     }
 
-    protected void handleAfterLoad() {
-        BlastingRecipe.BlastingRecipeListener(this);
-        SmithingRecipe.SmithingRecipeListener(this);
+    protected void handleLoad() {
         StoneCutter.StoneCutterListener(this);
-        FurnaceRecipe.FurnaceRecipeListener(this);
-        CampfireRecipe.CampfireRecipeListener(this);
-        SmokingRecipe.SmokingRecipeListener(this);
+        SmokingCraft.SmokingRecipeListener(this);
     }
 
 
