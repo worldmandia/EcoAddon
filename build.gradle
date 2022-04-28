@@ -38,7 +38,7 @@ java {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    if (targetJavaVersion >= 12 || JavaVersion.current().isJava12Compatible()) {
+    if (targetJavaVersion >= 17) {
         options.release = targetJavaVersion
     }
 }
