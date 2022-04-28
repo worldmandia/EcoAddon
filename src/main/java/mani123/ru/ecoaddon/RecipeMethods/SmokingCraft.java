@@ -21,6 +21,7 @@ public class SmokingCraft {
 
     public static void SmokingRecipeListener(@NotNull final EcoAddon plugin) {
         if (!plugin.getConfigYml().getBool("enableSmokingRecipe")) return;
+        SmokingIds.clear();
         for (Config CfgSub : plugin.getCraftsYml().getSubsections("SmokingRecipe")) {
             ItemStack input = Items.lookup(CfgSub.getFormattedString("input")).getItem();
             ItemStack result = Items.lookup(CfgSub.getFormattedString("result")).getItem();
@@ -33,15 +34,6 @@ public class SmokingCraft {
             SmokingRecipe smokingRecipe = new SmokingRecipe(namespacedKey, result, (RecipeChoice) input, experience, cookingTime);
             Bukkit.addRecipe(smokingRecipe);
         }
-    }
-
-
-    public static void ClearRecipes() {
-        for (NamespacedKey namespacedKey : SmokingNamespaces) {
-            Bukkit.removeRecipe(namespacedKey);
-        }
-        SmokingNamespaces.clear();
-        SmokingIds.clear();
     }
 
     public static ArrayList<NamespacedKey> getSmokingNamespaces() {
