@@ -2,7 +2,6 @@ package mani123.ru.ecoaddon;
 
 import com.willfp.eco.core.EcoPlugin;
 import com.willfp.eco.core.command.impl.PluginCommand;
-import com.willfp.eco.util.NamespacedKeyUtils;
 import mani123.ru.ecoaddon.Command.CommandEcoAddon;
 import mani123.ru.ecoaddon.Config.CraftsYml;
 import mani123.ru.ecoaddon.RecipeMethods.DefaultMethods;
