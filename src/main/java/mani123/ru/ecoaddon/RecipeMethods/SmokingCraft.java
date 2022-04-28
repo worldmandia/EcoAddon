@@ -36,11 +36,11 @@ public class SmokingCraft {
         }
     }
 
-    public static ArrayList<NamespacedKey> getSmokingNamespaces() {
+    public static ArrayList<NamespacedKey> getNamespaces() {
         return SmokingNamespaces;
     }
 
-    public static ArrayList<String> getSmokingIds() {
+    public static ArrayList<String> getIds() {
         return SmokingIds;
     }
 
