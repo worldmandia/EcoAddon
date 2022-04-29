@@ -14,5 +14,5 @@ enableFurnaceRecipe: true
 enableSmithingRecipe: true
 # Smoker crafts
 enableSmokingRecipe: true
-# Villager trades
-enableVillagerTrades: true
+# Villager trades (Not working)
+enableVillagerTrades: false

@@ -20,11 +20,6 @@ FurnaceRecipe:
     result: ecoitems:item2
     experience: 337
     cookingTime: 120
-  - id: furnacerecipe3
-    input: ecoitems:item3
-    result: ecoitems:item3
-    experience: 228
-    cookingTime: 69
 
 StoneCutter:
   - id: stonecutterrecipe
@@ -47,7 +42,7 @@ SmokingRecipe:
     cookingTime: 60
 
 BlastingRecipe:
-  - id: smokingrecipe
+  - id: blastingrecipe
     input: ecoitems:item
     result: ecoitems:item
     experience: 20
@@ -76,19 +71,20 @@ SmithingRecipe:
 #     priceMultiplier: NUMBER
 #     experienceReward: true or false
 #
-
-VillagerTrade:
-  - id: new_villager_trade1
-    chance: 100
-    type: armorer
-    level: 1
-    inputOne: ecoitems:pink_crystal
-    inputTwo: ecoitems:pink_crystal
-    result: ecoitems:pink_dust
-    uses: 2
-    maxUses: 5
-    villagerExperience: 1
-    demand: 0
-    specialPrice: 100
-    priceMultiplier: 0
-    experienceReward: true
+# Soon
+#
+#VillagerTrade:
+#  - id: new_villager_trade1
+#    chance: 100
+#    type: armorer
+#    level: 1
+#    inputOne: ecoitems:pink_crystal
+#    inputTwo: ecoitems:pink_crystal
+#    result: ecoitems:pink_dust
+#    uses: 2
+#    maxUses: 5
+#    villagerExperience: 1
+#    demand: 0
+#    specialPrice: 100
+#    priceMultiplier: 0
+#    experienceReward: true
