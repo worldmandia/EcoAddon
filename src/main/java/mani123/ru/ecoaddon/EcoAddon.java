@@ -35,6 +35,7 @@ public final class EcoAddon extends EcoPlugin {
     @Override
     protected void handleReload() {
         AllCustomCrafts.clear();
+        AllCustomCrafts.addAll(BlastingCraft.getNamespaces());
         AllCustomCrafts.addAll(CampfireCraft.getNamespaces());
         AllCustomCrafts.addAll(StoneCutterCraft.getNamespaces());
         AllCustomCrafts.addAll(SmokingCraft.getNamespaces());
@@ -42,6 +43,7 @@ public final class EcoAddon extends EcoPlugin {
         AllCustomCrafts.addAll(FurnaceCraft.getNamespaces());
         DefaultMethods.ClearCrafts(AllCustomCrafts);
         FurnaceCraft.FurnaceCraftListener(this);
+        BlastingCraft.BlastingCraftListener(this);
         CampfireCraft.CampfireCraftListener(this);
         StoneCutterCraft.StoneCutterCraftListener(this);
         SmithingCraft.SmithingCraftListener(this);
@@ -49,12 +51,14 @@ public final class EcoAddon extends EcoPlugin {
     }
 
     protected void handleLoad() {
+        AllCustomCrafts.addAll(BlastingCraft.getNamespaces());
         AllCustomCrafts.addAll(CampfireCraft.getNamespaces());
         AllCustomCrafts.addAll(StoneCutterCraft.getNamespaces());
         AllCustomCrafts.addAll(SmokingCraft.getNamespaces());
         AllCustomCrafts.addAll(SmithingCraft.getNamespaces());
         AllCustomCrafts.addAll(FurnaceCraft.getNamespaces());
         FurnaceCraft.FurnaceCraftListener(this);
+        BlastingCraft.BlastingCraftListener(this);
         CampfireCraft.CampfireCraftListener(this);
         StoneCutterCraft.StoneCutterCraftListener(this);
         SmokingCraft.SmokingCraftListener(this);

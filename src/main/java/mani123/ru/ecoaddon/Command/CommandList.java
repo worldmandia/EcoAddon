@@ -35,15 +35,15 @@ public class CommandList extends Subcommand {
                 case ("smoking") ->
                         sender.sendMessage(lang.getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
                                 .replace("%crafts%", DefaultMethods.getFormattedList(SmokingCraft.getIds()))
-                                .replace("%count%",String.valueOf(SmokingCraft.getIds().size())));
+                                .replace("%count%", String.valueOf(SmokingCraft.getIds().size())));
                 case ("campfire") ->
                         sender.sendMessage(lang.getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
                                 .replace("%crafts%", DefaultMethods.getFormattedList(CampfireCraft.getIds()))
-                                .replace("%count%",String.valueOf(CampfireCraft.getIds().size())));
+                                .replace("%count%", String.valueOf(CampfireCraft.getIds().size())));
                 case ("stonecutter") ->
                         sender.sendMessage(lang.getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
                                 .replace("%crafts%", DefaultMethods.getFormattedList(StoneCutterCraft.getIds()))
-                                .replace("%count%",String.valueOf(StoneCutterCraft.getIds().size())));
+                                .replace("%count%", String.valueOf(StoneCutterCraft.getIds().size())));
                 case ("furnace") ->
                         sender.sendMessage(lang.getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
                                 .replace("%crafts%", DefaultMethods.getFormattedList(FurnaceCraft.getIds()))

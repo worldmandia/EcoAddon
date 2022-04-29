@@ -23,7 +23,7 @@ public class CampfireCraft {
     public static void CampfireCraftListener(@NotNull final EcoAddon plugin) {
         if (!plugin.getConfigYml().getBool("enableCampfireRecipe")) return;
         CampfireIds.clear();
-        for (Config CfgSub : plugin.getCraftsYml().getSubsections("CampfireRecipe")){
+        for (Config CfgSub : plugin.getCraftsYml().getSubsections("CampfireRecipe")) {
             ItemStack input = Items.lookup(CfgSub.getFormattedString("input")).getItem();
             ItemStack result = Items.lookup(CfgSub.getFormattedString("result")).getItem();
             float experience = (float) CfgSub.getDouble("experience");
