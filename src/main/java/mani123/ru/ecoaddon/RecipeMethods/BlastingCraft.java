@@ -4,6 +4,7 @@ import com.willfp.eco.core.config.interfaces.Config;
 import com.willfp.eco.core.items.Items;
 import com.willfp.eco.util.NamespacedKeyUtils;
 import mani123.ru.ecoaddon.EcoAddon;
+import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.BlastingRecipe;
 import org.bukkit.inventory.ItemStack;
@@ -31,6 +32,7 @@ public class BlastingCraft {
             NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", id);
             BlastingNamespaces.add(namespacedKey);
             BlastingRecipe blastingRecipe = new BlastingRecipe(namespacedKey, result, (RecipeChoice) input, experience, cookingTime);
+            Bukkit.addRecipe(blastingRecipe);
         }
     }
 
