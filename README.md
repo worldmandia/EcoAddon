@@ -4,17 +4,17 @@ Minecraft plugin for Add **new features** to Eco plugins
 <br>at the moment, plugin adds new crafts to devices
 (https://polymart.org/resource/ecoaddon.2178)
 
-# Dependencies
+## Dependencies
 
 - minecraft 1.17+
 - Java 17+
 - **Eco plugin** v6.35.1+ _(https://github.com/Auxilor/eco/releases)_
 
-# SoftDepends
+## SoftDepends
 
 - Eco plugins by Auxilor: https://polymart.org/user/auxilor.1107
 
-# Support crafts
+## Support crafts
 
 - StoneCutter
 - Furnace
@@ -22,10 +22,10 @@ Minecraft plugin for Add **new features** to Eco plugins
 - Smoker
 - Smithing Table
 - BlastFurnace
-- Villager crafts (test)
+- Villager crafts (in dev)
   <br> **ask** for **more** features :)
 
-# License
+## License
 
 Click here to read [the entire license](https://github.com/mani1232/EcoAddon/blob/master/LICENSE)
 
