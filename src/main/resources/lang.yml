@@ -1,7 +1,8 @@
 messages:
   prefix: "&7&lEcoAddon &r&8» &r"
   no-permission: "&cYou don't have permission to do this!"
-  not-player: "&cThis command must be run by a player"
+  not-player: "&cThis command must be run by a &4player"
   invalid-command: "&cUnknown subcommand!"
-  reloaded: "Reloaded! Took %time%ms, reconnect to server, for add new crafts!"
-  list: "Registered crafts: %crafts% (%count%)"
+  reloaded: "&6Reloaded! &rTook &6%time%ms&r, &6reconnect &rto server, for &6add new &rcrafts!"
+  list: "Registered crafts: %crafts% &7(&6%count%&7)"
+  broken-craft: "&cBroken craft with id: &4%id%&c, reason: &4%reason%"

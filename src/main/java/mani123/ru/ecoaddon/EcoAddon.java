@@ -34,13 +34,6 @@ public final class EcoAddon extends EcoPlugin {
 
     @Override
     protected void handleReload() {
-        AllCustomCrafts.clear();
-        AllCustomCrafts.addAll(BlastingCraft.getNamespaces());
-        AllCustomCrafts.addAll(CampfireCraft.getNamespaces());
-        AllCustomCrafts.addAll(StoneCutterCraft.getNamespaces());
-        AllCustomCrafts.addAll(SmokingCraft.getNamespaces());
-        AllCustomCrafts.addAll(SmithingCraft.getNamespaces());
-        AllCustomCrafts.addAll(FurnaceCraft.getNamespaces());
         DefaultMethods.ClearCrafts(AllCustomCrafts);
         FurnaceCraft.FurnaceCraftListener(this);
         BlastingCraft.BlastingCraftListener(this);
@@ -48,21 +41,28 @@ public final class EcoAddon extends EcoPlugin {
         StoneCutterCraft.StoneCutterCraftListener(this);
         SmithingCraft.SmithingCraftListener(this);
         SmokingCraft.SmokingCraftListener(this);
-    }
-
-    protected void handleLoad() {
+        AllCustomCrafts.clear();
         AllCustomCrafts.addAll(BlastingCraft.getNamespaces());
         AllCustomCrafts.addAll(CampfireCraft.getNamespaces());
         AllCustomCrafts.addAll(StoneCutterCraft.getNamespaces());
         AllCustomCrafts.addAll(SmokingCraft.getNamespaces());
         AllCustomCrafts.addAll(SmithingCraft.getNamespaces());
         AllCustomCrafts.addAll(FurnaceCraft.getNamespaces());
+    }
+
+    protected void handleLoad() {
         FurnaceCraft.FurnaceCraftListener(this);
         BlastingCraft.BlastingCraftListener(this);
         CampfireCraft.CampfireCraftListener(this);
         StoneCutterCraft.StoneCutterCraftListener(this);
         SmokingCraft.SmokingCraftListener(this);
         SmithingCraft.SmithingCraftListener(this);
+        AllCustomCrafts.addAll(BlastingCraft.getNamespaces());
+        AllCustomCrafts.addAll(CampfireCraft.getNamespaces());
+        AllCustomCrafts.addAll(StoneCutterCraft.getNamespaces());
+        AllCustomCrafts.addAll(SmokingCraft.getNamespaces());
+        AllCustomCrafts.addAll(SmithingCraft.getNamespaces());
+        AllCustomCrafts.addAll(FurnaceCraft.getNamespaces());
     }
 
 

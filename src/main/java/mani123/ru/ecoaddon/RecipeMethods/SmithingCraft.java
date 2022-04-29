@@ -3,6 +3,7 @@ package mani123.ru.ecoaddon.RecipeMethods;
 import com.willfp.eco.core.config.interfaces.Config;
 import com.willfp.eco.core.items.Items;
 import com.willfp.eco.util.NamespacedKeyUtils;
+import com.willfp.eco.util.StringUtils;
 import mani123.ru.ecoaddon.EcoAddon;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
@@ -23,15 +24,22 @@ public class SmithingCraft {
         if (!plugin.getConfigYml().getBool("enableSmithingRecipe")) return;
         SmithingIds.clear();
         for (Config CfgSub : plugin.getCraftsYml().getSubsections("SmithingRecipe")) {
-            ItemStack result = Items.lookup(CfgSub.getFormattedString("result")).getItem();
-            ItemStack base = Items.lookup(CfgSub.getFormattedString("base_item")).getItem();
-            ItemStack addition = Items.lookup(CfgSub.getFormattedString("add_item")).getItem();
             String id = CfgSub.getFormattedString("id");
-            SmithingIds.add(id);
-            NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", id);
-            SmithingNamespaces.add(namespacedKey);
-            SmithingRecipe smithingRecipe = new SmithingRecipe(namespacedKey, result, (RecipeChoice) base, (RecipeChoice) addition);
-            Bukkit.addRecipe(smithingRecipe);
+            try {
+                ItemStack result = Items.lookup(CfgSub.getFormattedString("result")).getItem();
+                RecipeChoice base = new RecipeChoice.ExactChoice(Items.lookup(CfgSub.getFormattedString("input")).getItem());
+                RecipeChoice addition = new RecipeChoice.ExactChoice(Items.lookup(CfgSub.getFormattedString("input")).getItem());
+                SmithingIds.add(id);
+                NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", id);
+                SmithingNamespaces.add(namespacedKey);
+                SmithingRecipe smithingRecipe = new SmithingRecipe(namespacedKey, result, base, addition);
+                Bukkit.addRecipe(smithingRecipe);
+            } catch (IllegalArgumentException e) {
+                plugin.getServer().getConsoleSender()
+                        .sendMessage(plugin.getLangYml().getMessage("broken-craft", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
+                                .replace("%id%", id)
+                                .replace("%reason%", e.getMessage()));
+            }
         }
     }
 

@@ -3,6 +3,7 @@ package mani123.ru.ecoaddon.RecipeMethods;
 import com.willfp.eco.core.config.interfaces.Config;
 import com.willfp.eco.core.items.Items;
 import com.willfp.eco.util.NamespacedKeyUtils;
+import com.willfp.eco.util.StringUtils;
 import mani123.ru.ecoaddon.EcoAddon;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
@@ -23,16 +24,23 @@ public class BlastingCraft {
         if (!plugin.getConfigYml().getBool("enableBlastingRecipe")) return;
         BlastingIds.clear();
         for (Config CfgSub : plugin.getCraftsYml().getSubsections("BlastingRecipe")) {
-            ItemStack input = Items.lookup(CfgSub.getFormattedString("input")).getItem();
-            ItemStack result = Items.lookup(CfgSub.getFormattedString("result")).getItem();
-            float experience = (float) CfgSub.getDouble("experience");
-            int cookingTime = CfgSub.getInt("cookingTime") * 20;
             String id = CfgSub.getFormattedString("id");
-            BlastingIds.add(id);
-            NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", id);
-            BlastingNamespaces.add(namespacedKey);
-            BlastingRecipe blastingRecipe = new BlastingRecipe(namespacedKey, result, (RecipeChoice) input, experience, cookingTime);
-            Bukkit.addRecipe(blastingRecipe);
+            try {
+                RecipeChoice input = new RecipeChoice.ExactChoice(Items.lookup(CfgSub.getFormattedString("input")).getItem());
+                ItemStack result = Items.lookup(CfgSub.getFormattedString("result")).getItem();
+                float experience = (float) CfgSub.getDouble("experience");
+                int cookingTime = CfgSub.getInt("cookingTime") * 20;
+                BlastingIds.add(id);
+                NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", id);
+                BlastingNamespaces.add(namespacedKey);
+                BlastingRecipe blastingRecipe = new BlastingRecipe(namespacedKey, result, input, experience, cookingTime);
+                Bukkit.addRecipe(blastingRecipe);
+            } catch (IllegalArgumentException e) {
+                plugin.getServer().getConsoleSender()
+                        .sendMessage(plugin.getLangYml().getMessage("broken-craft", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
+                                .replace("%id%", id)
+                                .replace("%reason%", e.getMessage()));
+            }
         }
     }
 
