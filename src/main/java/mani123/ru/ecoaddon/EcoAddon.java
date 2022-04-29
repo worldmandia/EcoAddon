@@ -50,7 +50,7 @@ public final class EcoAddon extends EcoPlugin {
         AllCustomCrafts.addAll(FurnaceCraft.getNamespaces());
     }
 
-    protected void handleLoad() {
+    protected void handleAfterLoad() {
         FurnaceCraft.FurnaceCraftListener(this);
         BlastingCraft.BlastingCraftListener(this);
         CampfireCraft.CampfireCraftListener(this);
