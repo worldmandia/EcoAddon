@@ -30,11 +30,11 @@ public class BlastingCraft {
                 ItemStack result = Items.lookup(CfgSub.getFormattedString("result")).getItem();
                 float experience = (float) CfgSub.getDouble("experience");
                 int cookingTime = CfgSub.getInt("cookingTime") * 20;
-                BlastingIds.add(id);
                 NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", id);
-                BlastingNamespaces.add(namespacedKey);
                 BlastingRecipe blastingRecipe = new BlastingRecipe(namespacedKey, result, input, experience, cookingTime);
                 Bukkit.addRecipe(blastingRecipe);
+                BlastingIds.add(id);
+                BlastingNamespaces.add(namespacedKey);
             } catch (IllegalArgumentException e) {
                 plugin.getServer().getConsoleSender()
                         .sendMessage(plugin.getLangYml().getMessage("broken-craft", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)

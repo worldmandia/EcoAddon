@@ -31,11 +31,11 @@ public class CampfireCraft {
                 ItemStack result = Items.lookup(CfgSub.getFormattedString("result")).getItem();
                 float experience = (float) CfgSub.getDouble("experience");
                 int cookingTime = CfgSub.getInt("cookingTime") * 20;
-                CampfireIds.add(id);
                 NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", id);
-                CampfireNamespaces.add(namespacedKey);
                 CampfireRecipe campfireRecipe = new CampfireRecipe(namespacedKey, result, input, experience, cookingTime);
                 Bukkit.addRecipe(campfireRecipe);
+                CampfireIds.add(id);
+                CampfireNamespaces.add(namespacedKey);
             } catch (IllegalArgumentException e) {
                 plugin.getServer().getConsoleSender()
                         .sendMessage(plugin.getLangYml().getMessage("broken-craft", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)

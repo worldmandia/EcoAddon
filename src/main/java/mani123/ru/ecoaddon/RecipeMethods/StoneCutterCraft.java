@@ -29,12 +29,12 @@ public class StoneCutterCraft {
                 RecipeChoice input = new RecipeChoice.ExactChoice(Items.lookup(CfgSub.getFormattedString("input")).getItem());
                 ItemStack result = Items.lookup(CfgSub.getFormattedString("result")).getItem();
                 String group = CfgSub.getFormattedString("group");
-                StoneCutterIds.add(id);
                 NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", id);
-                StoneCutterNamespaces.add(namespacedKey);
                 StonecuttingRecipe stonecuttingRecipe = new StonecuttingRecipe(namespacedKey, result, input);
                 stonecuttingRecipe.setGroup(group);
                 Bukkit.addRecipe(stonecuttingRecipe);
+                StoneCutterIds.add(id);
+                StoneCutterNamespaces.add(namespacedKey);
             } catch (IllegalArgumentException e) {
                 plugin.getServer().getConsoleSender()
                         .sendMessage(plugin.getLangYml().getMessage("broken-craft", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)

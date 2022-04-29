@@ -29,11 +29,11 @@ public class SmithingCraft {
                 ItemStack result = Items.lookup(CfgSub.getFormattedString("result")).getItem();
                 RecipeChoice base = new RecipeChoice.ExactChoice(Items.lookup(CfgSub.getFormattedString("input")).getItem());
                 RecipeChoice addition = new RecipeChoice.ExactChoice(Items.lookup(CfgSub.getFormattedString("input")).getItem());
-                SmithingIds.add(id);
                 NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", id);
-                SmithingNamespaces.add(namespacedKey);
                 SmithingRecipe smithingRecipe = new SmithingRecipe(namespacedKey, result, base, addition);
                 Bukkit.addRecipe(smithingRecipe);
+                SmithingIds.add(id);
+                SmithingNamespaces.add(namespacedKey);
             } catch (IllegalArgumentException e) {
                 plugin.getServer().getConsoleSender()
                         .sendMessage(plugin.getLangYml().getMessage("broken-craft", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
