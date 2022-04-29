@@ -6,7 +6,6 @@ import com.willfp.eco.util.NamespacedKeyUtils;
 import com.willfp.eco.util.StringUtils;
 import mani123.ru.ecoaddon.EcoAddon;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.RecipeChoice;
