@@ -19,7 +19,7 @@ public class SmokingCraft {
 
     private static final ArrayList<String> SmokingIds = new ArrayList<>();
 
-    public static void SmokingRecipeListener(@NotNull final EcoAddon plugin) {
+    public static void SmokingCraftListener(@NotNull final EcoAddon plugin) {
         if (!plugin.getConfigYml().getBool("enableSmokingRecipe")) return;
         SmokingIds.clear();
         for (Config CfgSub : plugin.getCraftsYml().getSubsections("SmokingRecipe")) {
@@ -28,9 +28,9 @@ public class SmokingCraft {
             float experience = (float) CfgSub.getDouble("experience");
             int cookingTime = CfgSub.getInt("cookingTime") * 20;
             String id = CfgSub.getFormattedString("id");
+            SmokingIds.add(id);
             NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", id);
             SmokingNamespaces.add(namespacedKey);
-            SmokingIds.add(id);
             SmokingRecipe smokingRecipe = new SmokingRecipe(namespacedKey, result, (RecipeChoice) input, experience, cookingTime);
             Bukkit.addRecipe(smokingRecipe);
         }

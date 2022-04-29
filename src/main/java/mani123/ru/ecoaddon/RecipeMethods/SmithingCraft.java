@@ -19,7 +19,7 @@ public class SmithingCraft {
 
     private static final ArrayList<String> SmithingIds = new ArrayList<>();
 
-    public static void SmithingRecipeListener(@NotNull final EcoAddon plugin) {
+    public static void SmithingCraftListener(@NotNull final EcoAddon plugin) {
         if (!plugin.getConfigYml().getBool("enableSmithingRecipe")) return;
         SmithingIds.clear();
         for (Config CfgSub : plugin.getCraftsYml().getSubsections("SmithingRecipe")) {

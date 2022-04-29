@@ -4,18 +4,18 @@ import com.willfp.eco.core.EcoPlugin;
 import com.willfp.eco.core.command.impl.PluginCommand;
 import mani123.ru.ecoaddon.Command.CommandEcoAddon;
 import mani123.ru.ecoaddon.Config.CraftsYml;
-import mani123.ru.ecoaddon.RecipeMethods.DefaultMethods;
-import mani123.ru.ecoaddon.RecipeMethods.SmithingCraft;
-import mani123.ru.ecoaddon.RecipeMethods.SmokingCraft;
-import mani123.ru.ecoaddon.RecipeMethods.StoneCutter;
-import mani123.ru.ecoaddon.RecipeMethods.VillagerRecipe.VillagerListeners;
+import mani123.ru.ecoaddon.RecipeMethods.*;
+import org.bukkit.NamespacedKey;
 import org.bukkit.event.Listener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public final class EcoAddon extends EcoPlugin {
 
     private static EcoAddon instance;
+
+    private static final ArrayList<NamespacedKey> AllCustomCrafts = new ArrayList<>();
 
     private final CraftsYml craftsYml;
 
@@ -29,23 +29,36 @@ public final class EcoAddon extends EcoPlugin {
 
     @Override
     protected List<Listener> loadListeners() {
-        return List.of(new VillagerListeners(this));
+        return List.of();
     }
 
     @Override
     protected void handleReload() {
-        DefaultMethods.ClearCrafts(StoneCutter.getNamespaces());
-        DefaultMethods.ClearCrafts(SmokingCraft.getNamespaces());
-        DefaultMethods.ClearCrafts(SmithingCraft.getNamespaces());
-        StoneCutter.StoneCutterListener(this);
-        SmithingCraft.SmithingRecipeListener(this);
-        SmokingCraft.SmokingRecipeListener(this);
+        AllCustomCrafts.clear();
+        AllCustomCrafts.addAll(CampfireCraft.getNamespaces());
+        AllCustomCrafts.addAll(StoneCutterCraft.getNamespaces());
+        AllCustomCrafts.addAll(SmokingCraft.getNamespaces());
+        AllCustomCrafts.addAll(SmithingCraft.getNamespaces());
+        AllCustomCrafts.addAll(FurnaceCraft.getNamespaces());
+        DefaultMethods.ClearCrafts(AllCustomCrafts);
+        FurnaceCraft.FurnaceCraftListener(this);
+        CampfireCraft.CampfireCraftListener(this);
+        StoneCutterCraft.StoneCutterCraftListener(this);
+        SmithingCraft.SmithingCraftListener(this);
+        SmokingCraft.SmokingCraftListener(this);
     }
 
     protected void handleLoad() {
-        StoneCutter.StoneCutterListener(this);
-        SmokingCraft.SmokingRecipeListener(this);
-        SmithingCraft.SmithingRecipeListener(this);
+        AllCustomCrafts.addAll(CampfireCraft.getNamespaces());
+        AllCustomCrafts.addAll(StoneCutterCraft.getNamespaces());
+        AllCustomCrafts.addAll(SmokingCraft.getNamespaces());
+        AllCustomCrafts.addAll(SmithingCraft.getNamespaces());
+        AllCustomCrafts.addAll(FurnaceCraft.getNamespaces());
+        FurnaceCraft.FurnaceCraftListener(this);
+        CampfireCraft.CampfireCraftListener(this);
+        StoneCutterCraft.StoneCutterCraftListener(this);
+        SmokingCraft.SmokingCraftListener(this);
+        SmithingCraft.SmithingCraftListener(this);
     }
 
 
@@ -62,6 +75,9 @@ public final class EcoAddon extends EcoPlugin {
         return this.craftsYml;
     }
 
+    public ArrayList<NamespacedKey> getAllCustomCrafts() {
+        return AllCustomCrafts;
+    }
 
     @Override
     public String getMinimumEcoVersion() {

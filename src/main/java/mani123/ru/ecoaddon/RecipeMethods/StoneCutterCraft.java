@@ -13,12 +13,12 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class StoneCutter {
+public class StoneCutterCraft {
 
     private static final ArrayList<NamespacedKey> StoneCutterNamespaces = new ArrayList<>();
     private static final ArrayList<String> StoneCutterIds = new ArrayList<>();
 
-    public static void StoneCutterListener(@NotNull final EcoAddon plugin) {
+    public static void StoneCutterCraftListener(@NotNull final EcoAddon plugin) {
         if (!plugin.getConfigYml().getBool("enableStoneCutter")) return;
         StoneCutterIds.clear();
         for (Config CfgSub : plugin.getCraftsYml().getSubsections("StoneCutter")) {

@@ -4,10 +4,7 @@ import com.willfp.eco.core.EcoPlugin;
 import com.willfp.eco.core.command.impl.Subcommand;
 import com.willfp.eco.core.config.base.LangYml;
 import com.willfp.eco.util.StringUtils;
-import mani123.ru.ecoaddon.RecipeMethods.DefaultMethods;
-import mani123.ru.ecoaddon.RecipeMethods.SmithingCraft;
-import mani123.ru.ecoaddon.RecipeMethods.SmokingCraft;
-import mani123.ru.ecoaddon.RecipeMethods.StoneCutter;
+import mani123.ru.ecoaddon.RecipeMethods.*;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
@@ -29,28 +26,36 @@ public class CommandList extends Subcommand {
             switch (args.get(0).toLowerCase(Locale.ROOT)) {
                 case ("blasting") ->
                         sender.sendMessage(lang.getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
-                                .replace("%crafts%", DefaultMethods.getCraftsNamesList("BlastingRecipe")).replace("%count%", DefaultMethods.getCraftsNamesListCount("BlastingRecipe")));
+                                .replace("%crafts%", DefaultMethods.getFormattedList(BlastingCraft.getIds()))
+                                .replace("%count%", String.valueOf(BlastingCraft.getIds().size())));
                 case ("smithing") ->
                         sender.sendMessage(lang.getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
-                                .replace("%crafts%", DefaultMethods.getFormattedList(SmithingCraft.getIds())).replace("%count%", String.valueOf(SmithingCraft.getIds().size())));
+                                .replace("%crafts%", DefaultMethods.getFormattedList(SmithingCraft.getIds()))
+                                .replace("%count%", String.valueOf(SmithingCraft.getIds().size())));
                 case ("smoking") ->
                         sender.sendMessage(lang.getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
-                                .replace("%crafts%", DefaultMethods.getFormattedList(SmokingCraft.getIds())).replace("%count%",String.valueOf(SmokingCraft.getIds().size())));
+                                .replace("%crafts%", DefaultMethods.getFormattedList(SmokingCraft.getIds()))
+                                .replace("%count%",String.valueOf(SmokingCraft.getIds().size())));
                 case ("campfire") ->
                         sender.sendMessage(lang.getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
-                                .replace("%crafts%", DefaultMethods.getCraftsNamesList("CampfireRecipe")).replace("%count%", DefaultMethods.getCraftsNamesListCount("CampfireRecipe")));
+                                .replace("%crafts%", DefaultMethods.getFormattedList(CampfireCraft.getIds()))
+                                .replace("%count%",String.valueOf(CampfireCraft.getIds().size())));
                 case ("stonecutter") ->
                         sender.sendMessage(lang.getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
-                                .replace("%crafts%", DefaultMethods.getFormattedList(StoneCutter.getIds())).replace("%count%",String.valueOf(StoneCutter.getIds().size())));
+                                .replace("%crafts%", DefaultMethods.getFormattedList(StoneCutterCraft.getIds()))
+                                .replace("%count%",String.valueOf(StoneCutterCraft.getIds().size())));
                 case ("furnace") ->
                         sender.sendMessage(lang.getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
-                                .replace("%crafts%", DefaultMethods.getCraftsNamesList("FurnaceRecipe")).replace("%count%", DefaultMethods.getCraftsNamesListCount("FurnaceRecipe")));
-                case ("trades") ->
-                        sender.sendMessage(lang.getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
-                                .replace("%crafts%", DefaultMethods.getCraftsNamesList("VillagerTrade")).replace("%count%", DefaultMethods.getCraftsNamesListCount("VillagerTrade")));
-                case ("all") ->
-                        sender.sendMessage(lang.getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
-                                .replace("%crafts%", DefaultMethods.getAllCraftsNames()).replace("%count%", DefaultMethods.getAllCraftsCount()));
+                                .replace("%crafts%", DefaultMethods.getFormattedList(FurnaceCraft.getIds()))
+                                .replace("%count%", String.valueOf(FurnaceCraft.getIds().size())));
+                //case ("trades") ->
+                //        sender.sendMessage(lang.getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
+                //                .replace("%crafts%", DefaultMethods.getCraftsNamesList("VillagerTrade"))
+                //                .replace("%count%", DefaultMethods.getCraftsNamesListCount("VillagerTrade")));
+                //case ("all") ->
+                //        sender.sendMessage(lang.getMessage("list", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
+                //                .replace("%crafts%", DefaultMethods.getAllCraftsNames())
+                //                .replace("%count%", DefaultMethods.getAllCraftsCount()));
                 default -> sender.sendMessage(lang.getMessage("invalid-command"));
             }
         } else {
@@ -70,8 +75,8 @@ public class CommandList extends Subcommand {
         completions.add("smoking");
         completions.add("smithing");
         completions.add("blasting");
-        completions.add("trades");
-        completions.add("all");
+        //completions.add("trades");
+        //completions.add("all");
 
         return completions;
     }

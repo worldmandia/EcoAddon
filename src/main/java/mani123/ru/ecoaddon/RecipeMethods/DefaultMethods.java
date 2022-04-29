@@ -15,7 +15,7 @@ public class DefaultMethods {
         }
     }
 
-    public static String getFormattedList(ArrayList<String> list) {
+    public static String getFormattedList(@NotNull ArrayList<String> list) {
         return list.stream().map(Object::toString)
                 .collect(Collectors.joining(", "));
     }
