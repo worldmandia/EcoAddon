@@ -31,7 +31,7 @@ public class SmithingCraft {
                 RecipeChoice base = new RecipeChoice.ExactChoice(Items.lookup(CfgSub.getFormattedString("input")).getItem());
                 RecipeChoice addition = new RecipeChoice.ExactChoice(Items.lookup(CfgSub.getFormattedString("input")).getItem());
                 NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", id);
-                SmithingRecipe smithingRecipe = new SmithingRecipe(namespacedKey, result, base, addition, true);
+                SmithingRecipe smithingRecipe = new SmithingRecipe(namespacedKey, result, base, addition);
                 Bukkit.addRecipe(smithingRecipe);
                 SmithingIds.add(id);
                 SmithingNamespaces.add(namespacedKey);
