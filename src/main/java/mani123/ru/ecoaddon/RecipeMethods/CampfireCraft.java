@@ -24,6 +24,7 @@ public class CampfireCraft {
     public static void CampfireCraftListener(@NotNull final EcoAddon plugin) {
         if (!plugin.getConfigYml().getBool("enableCampfireRecipe")) return;
         CampfireIds.clear();
+        CampfireNamespaces.clear();
         for (Config CfgSub : plugin.getCraftsYml().getSubsections("CampfireRecipe")) {
             String id = CfgSub.getFormattedString("id");
             try {

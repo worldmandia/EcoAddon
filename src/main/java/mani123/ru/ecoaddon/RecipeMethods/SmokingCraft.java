@@ -23,6 +23,7 @@ public class SmokingCraft {
     public static void SmokingCraftListener(@NotNull final EcoAddon plugin) {
         if (!plugin.getConfigYml().getBool("enableSmokingRecipe")) return;
         SmokingIds.clear();
+        SmokingNamespaces.clear();
         for (Config CfgSub : plugin.getCraftsYml().getSubsections("SmokingRecipe")) {
             String id = CfgSub.getFormattedString("id");
             try {

@@ -23,6 +23,7 @@ public class BlastingCraft {
     public static void BlastingCraftListener(@NotNull final EcoAddon plugin) {
         if (!plugin.getConfigYml().getBool("enableBlastingRecipe")) return;
         BlastingIds.clear();
+        BlastingNamespaces.clear();
         for (Config CfgSub : plugin.getCraftsYml().getSubsections("BlastingRecipe")) {
             String id = CfgSub.getFormattedString("id");
             try {

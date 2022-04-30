@@ -4,5 +4,5 @@ messages:
   not-player: "&cThis command must be run by a &4player"
   invalid-command: "&cUnknown subcommand!"
   reloaded: "&7Reloaded! &rTook &7%time%ms&r, &7reconnect &rto server, for &7add new &rcrafts!"
-  list: "Registered crafts: %crafts% &8(&7%count%&8)"
+  list: "Registered crafts &7%count% &r%crafts%"
   broken-craft: "&cBroken craft with id: &4%id%&c, reason: &4%reason%"

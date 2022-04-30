@@ -22,6 +22,7 @@ public class StoneCutterCraft {
     public static void StoneCutterCraftListener(@NotNull final EcoAddon plugin) {
         if (!plugin.getConfigYml().getBool("enableStoneCutter")) return;
         StoneCutterIds.clear();
+        StoneCutterNamespaces.clear();
         for (Config CfgSub : plugin.getCraftsYml().getSubsections("StoneCutter")) {
             String id = CfgSub.getFormattedString("id");
             try {

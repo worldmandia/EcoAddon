@@ -22,7 +22,8 @@ public class FurnaceCraft {
     public static void FurnaceCraftListener(@NotNull final EcoAddon plugin) {
         if (!plugin.getConfigYml().getBool("enableFurnaceRecipe")) return;
         FurnaceIds.clear();
-        for (Config CfgSub : plugin.getConfigYml().getSubsections("FurnaceRecipe")) {
+        FurnaceNamespaces.clear();
+        for (Config CfgSub : plugin.getCraftsYml().getSubsections("FurnaceRecipe")) {
             String id = CfgSub.getFormattedString("id");
             try {
                 RecipeChoice input = new RecipeChoice.ExactChoice(Items.lookup(CfgSub.getFormattedString("input")).getItem());
@@ -32,8 +33,8 @@ public class FurnaceCraft {
                 NamespacedKey namespacedKey = NamespacedKeyUtils.create("ecoaddon", id);
                 FurnaceRecipe furnaceRecipe = new FurnaceRecipe(namespacedKey, result, input, experience, cookingTime);
                 Bukkit.addRecipe(furnaceRecipe);
-                FurnaceNamespaces.add(namespacedKey);
                 FurnaceIds.add(id);
+                FurnaceNamespaces.add(namespacedKey);
             } catch (IllegalArgumentException e) {
                 plugin.getServer().getConsoleSender()
                         .sendMessage(plugin.getLangYml().getMessage("broken-craft", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
