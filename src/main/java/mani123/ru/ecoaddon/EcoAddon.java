@@ -24,7 +24,6 @@ public final class EcoAddon extends EcoPlugin {
 
         instance = this;
         craftsYml = new CraftsYml(this);
-
     }
 
     @Override
@@ -85,7 +84,7 @@ public final class EcoAddon extends EcoPlugin {
 
     @Override
     public String getMinimumEcoVersion() {
-        return "6.35.2";
+        return "6.38.2";
     }
 
 }

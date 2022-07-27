@@ -8,7 +8,7 @@ Minecraft plugin for Add **new features** to Eco plugins
 
 - minecraft 1.17+
 - Java 17+
-- **Eco plugin** v6.35.1+ _(https://github.com/Auxilor/eco/releases)_
+- **Eco plugin** v6.38.2+ _(https://github.com/Auxilor/eco/releases)_
 
 ## SoftDepends
 
