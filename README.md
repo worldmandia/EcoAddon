@@ -6,9 +6,9 @@ Minecraft plugin for Add **new features** to Eco plugins
 
 ## Dependencies
 
-- minecraft 1.17+
+- minecraft 1.19+
 - Java 17+
-- **Eco plugin** v6.38.2+ _(https://github.com/Auxilor/eco/releases)_
+- **Eco plugin** v6.41.1+ _(https://github.com/Auxilor/eco/releases)_
 
 ## SoftDepends
 

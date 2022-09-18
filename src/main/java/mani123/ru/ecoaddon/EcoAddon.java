@@ -78,13 +78,9 @@ public final class EcoAddon extends EcoPlugin {
         return this.craftsYml;
     }
 
-    public ArrayList<NamespacedKey> getAllCustomCrafts() {
-        return AllCustomCrafts;
-    }
-
     @Override
     public String getMinimumEcoVersion() {
-        return "6.38.2";
+        return "6.41.1";
     }
 
 }
