@@ -1,8 +1,9 @@
 name: EcoAddon
 version: '${version}'
 main: mani123.ru.ecoaddon.EcoAddon
-api-version: 1.17
+api-version: 1.19
 prefix: EAP
+folia-supported: true
 depend:
   - eco
 softdepend:
